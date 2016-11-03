@@ -19,7 +19,7 @@ namespace RestaurantSeatingProject
 
         }
 
-        public Table(string tableID, int size)
+        public Table(string TheTable, int TheSize)
         {
             this.tableID = TheTable;
             this.TheSize = TheSize;

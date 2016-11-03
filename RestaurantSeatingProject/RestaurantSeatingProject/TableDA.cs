@@ -21,12 +21,18 @@ namespace RestaurantSeatingProject
             Table table8 = new RestaurantSeatingProject.Table("8", 4);
             Table table9 = new RestaurantSeatingProject.Table("9", 6);
             Table table10 = new RestaurantSeatingProject.Table("10", 5);
-            Table table11 = new RestaurantSeatingProject.Table("11", 4);
-            Table table12 = new RestaurantSeatingProject.Table("12", 3);
-            Table table13 = new RestaurantSeatingProject.Table("13", 2);
-            Table table14 = new RestaurantSeatingProject.Table("14", 6);
 
             tables.Add(table1);
+            tables.Add(table2);
+            tables.Add(table3);
+            tables.Add(table4);
+            tables.Add(table5);
+            tables.Add(table6);
+            tables.Add(table7);
+            tables.Add(table8);
+            tables.Add(table9);
+            tables.Add(table10);
+
             return tables;
         }
 
