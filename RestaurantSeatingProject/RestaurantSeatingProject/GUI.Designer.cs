@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSeatingProject
 {
-    partial class HostUI
+    partial class GUI
     {
         /// <summary>
         /// Required designer variable.

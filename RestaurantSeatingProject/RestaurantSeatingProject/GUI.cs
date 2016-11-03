@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RestaurantSeatingProject
 {
-    public partial class HostUI : Form
+    public partial class GUI : Form
     {
-        public HostUI()
+        public GUI()
         {
             InitializeComponent();
         }
