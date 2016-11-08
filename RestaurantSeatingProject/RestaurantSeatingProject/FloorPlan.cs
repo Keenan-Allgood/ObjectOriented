@@ -22,6 +22,7 @@ namespace RestaurantSeatingProject
             get { return floorPlan; }
             set { floorPlan = value;}
         }
+
         public Table[] Tables
         {
             get { return tables; }

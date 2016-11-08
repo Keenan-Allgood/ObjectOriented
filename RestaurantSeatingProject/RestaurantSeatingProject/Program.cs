@@ -17,7 +17,7 @@ namespace RestaurantSeatingProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             TableDA.GetAllTables();
-            Application.Run(new Form1());
+            Application.Run(new GUI());
             
         }
     }
