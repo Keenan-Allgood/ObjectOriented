@@ -23,7 +23,7 @@ namespace RestaurantSeatingProject
             TableDA.GetAllTables();
             foreach (var i in TableDA.GetAllTables())
             {
-                cboTableList.Items.Add(i);
+                cboTableList.Items.Add(i.ToString());
             }
         }
 

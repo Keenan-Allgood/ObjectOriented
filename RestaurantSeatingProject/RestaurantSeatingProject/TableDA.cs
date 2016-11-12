@@ -36,6 +36,5 @@ namespace RestaurantSeatingProject
             return tables;
         }
 
-
     }
 }
