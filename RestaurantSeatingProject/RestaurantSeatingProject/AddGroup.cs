@@ -26,11 +26,17 @@ namespace RestaurantSeatingProject
         {
             cboServer.Items.Clear();
             cboServerWaitlist.Items.Clear();
+            cboWaitlistGroup.Items.Clear();
             Server ourServers = new Server();
+            Waitgroup ourWaitgroup = new Waitgroup();
             foreach (var i in ourServers.ShowList())
             {
                 cboServer.Items.Add(i);
                 cboServerWaitlist.Items.Add(i);
+            }
+            foreach (var i in ourWaitgroup.ShowList())
+            {
+                cboWaitlistGroup.Items.Add(i);
             }
         }
     }

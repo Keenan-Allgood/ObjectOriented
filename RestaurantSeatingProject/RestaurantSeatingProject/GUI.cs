@@ -20,10 +20,11 @@ namespace RestaurantSeatingProject
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            cboServerList.Items.Add("Molly");
-            cboServerList.Items.Add("Ann");
-            cboServerList.Items.Add("Jenny");
             TableDA.GetAllTables();
+            foreach (var i in TableDA.GetAllTables())
+            {
+                cboTableList.Items.Add(i);
+            }
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
