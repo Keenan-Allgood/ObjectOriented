@@ -13,6 +13,7 @@ namespace RestaurantSeatingProject
 {
     public partial class GUI : Form
     {
+        List<Restaurant> oRestaurantList = new List<Restaurant>();
         public GUI()
         {
             InitializeComponent();
@@ -20,11 +21,11 @@ namespace RestaurantSeatingProject
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            TableDA.GetAllTables();
-            foreach (var i in TableDA.GetAllTables())
-            {
-                cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
-            }
+            LoadTableList();
+            LoadRestaurantList();
+            hcboTableList.SelectedIndex = 0;
+            cboTableList.SelectedIndex = 0;
+            cboRestaurant.SelectedIndex = 0;
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -71,5 +72,27 @@ namespace RestaurantSeatingProject
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
         }
+
+        private void LoadTableList()
+        {
+            TableDA.GetAllTables();
+            foreach (var i in TableDA.GetAllTables())
+            {
+                cboTableList.Items.Add(i.ToString());
+                hcboTableList.Items.Add(i.ToString());
+            }
+        }
+        private void LoadRestaurantList()
+        {
+            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley");
+            oRestaurantList.Add(oRestaurant);
+
+            foreach( Restaurant r in oRestaurantList)
+            {
+                cboRestaurant.Items.Add(r);
+            }     
+        }
+
+
     }
 }

@@ -8,17 +8,17 @@ namespace RestaurantSeatingProject
 {
     class Restaurant
     {
-        private string name;
-        private string address;
-        private string manager;
-        private string host;
+        //private string name;
+        //private string address;
+        //private string manager;
+        //private string host;
 
         public Restaurant(string aName, string aAddress, string aManager, string aHost)
         {
-            name = aName;
-            address = aAddress;
-            manager = aManager;
-            host = aHost;
+            Name = aName;
+            Address = aAddress;
+            Manager = aManager;
+            Host = aHost;
         }
 
         public string Name { get; set; }

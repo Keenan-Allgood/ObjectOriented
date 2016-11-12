@@ -54,7 +54,7 @@
             this.lblTableList = new System.Windows.Forms.Label();
             this.hbtnRemoveGroup = new System.Windows.Forms.Button();
             this.hbtnAddGroup = new System.Windows.Forms.Button();
-            this.hcmobTableList = new System.Windows.Forms.ComboBox();
+            this.hcboTableList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabHost.SuspendLayout();
@@ -77,7 +77,7 @@
             this.tabHost.Controls.Add(this.label1);
             this.tabHost.Controls.Add(this.hbtnRemoveGroup);
             this.tabHost.Controls.Add(this.hbtnAddGroup);
-            this.tabHost.Controls.Add(this.hcmobTableList);
+            this.tabHost.Controls.Add(this.hcboTableList);
             this.tabHost.Controls.Add(this.btnAddWaitGroup);
             this.tabHost.Controls.Add(this.htxtGroupSize);
             this.tabHost.Controls.Add(this.htxtGroupName);
@@ -238,6 +238,7 @@
             // 
             // cboRestaurant
             // 
+            this.cboRestaurant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRestaurant.FormattingEnabled = true;
             this.cboRestaurant.Location = new System.Drawing.Point(39, 16);
             this.cboRestaurant.Name = "cboRestaurant";
@@ -295,6 +296,7 @@
             // 
             // cboTableList
             // 
+            this.cboTableList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTableList.FormattingEnabled = true;
             this.cboTableList.Location = new System.Drawing.Point(31, 70);
             this.cboTableList.Margin = new System.Windows.Forms.Padding(2);
@@ -332,14 +334,15 @@
             this.hbtnAddGroup.Text = "Add Group";
             this.hbtnAddGroup.UseVisualStyleBackColor = true;
             // 
-            // hcmobTableList
+            // hcboTableList
             // 
-            this.hcmobTableList.FormattingEnabled = true;
-            this.hcmobTableList.Location = new System.Drawing.Point(44, 109);
-            this.hcmobTableList.Margin = new System.Windows.Forms.Padding(2);
-            this.hcmobTableList.Name = "hcmobTableList";
-            this.hcmobTableList.Size = new System.Drawing.Size(382, 21);
-            this.hcmobTableList.TabIndex = 24;
+            this.hcboTableList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hcboTableList.FormattingEnabled = true;
+            this.hcboTableList.Location = new System.Drawing.Point(44, 109);
+            this.hcboTableList.Margin = new System.Windows.Forms.Padding(2);
+            this.hcboTableList.Name = "hcboTableList";
+            this.hcboTableList.Size = new System.Drawing.Size(382, 21);
+            this.hcboTableList.TabIndex = 24;
             // 
             // label1
             // 
@@ -402,7 +405,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button hbtnRemoveGroup;
         private System.Windows.Forms.Button hbtnAddGroup;
-        private System.Windows.Forms.ComboBox hcmobTableList;
+        private System.Windows.Forms.ComboBox hcboTableList;
         //private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         //private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         //private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
