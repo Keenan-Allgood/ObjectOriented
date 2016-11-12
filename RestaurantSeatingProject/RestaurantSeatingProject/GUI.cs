@@ -23,7 +23,7 @@ namespace RestaurantSeatingProject
             TableDA.GetAllTables();
             foreach (var i in TableDA.GetAllTables())
             {
-                cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
+                hcboTableList.Items.Add(i);
             }
         }
 
@@ -70,6 +70,19 @@ namespace RestaurantSeatingProject
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
+        }
+
+        private void hbtnRemoveGroup_Click(object sender, EventArgs e)
+        {
+            Table selectedTable = (Table)hcboTableList.SelectedItem;
+            selectedTable.clearTable();
+
+            hcboTableList.Items.Clear();
+
+            foreach (var i in TableDA.GetAllTables())
+            {
+                hcboTableList.Items.Add(i);
+            }
         }
     }
 }
