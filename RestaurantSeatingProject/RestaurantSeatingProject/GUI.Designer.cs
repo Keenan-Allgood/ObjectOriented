@@ -102,7 +102,7 @@
             // btnRemoveTableInfo
             // 
             this.btnRemoveTableInfo.Location = new System.Drawing.Point(1151, 119);
-            this.btnRemoveTableInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveTableInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveTableInfo.Name = "btnRemoveTableInfo";
             this.btnRemoveTableInfo.Size = new System.Drawing.Size(103, 52);
             this.btnRemoveTableInfo.TabIndex = 18;
@@ -112,7 +112,7 @@
             // btnModifyTableInfo
             // 
             this.btnModifyTableInfo.Location = new System.Drawing.Point(1032, 119);
-            this.btnModifyTableInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifyTableInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifyTableInfo.Name = "btnModifyTableInfo";
             this.btnModifyTableInfo.Size = new System.Drawing.Size(95, 52);
             this.btnModifyTableInfo.TabIndex = 17;
@@ -122,17 +122,18 @@
             // btnAddTableInfo
             // 
             this.btnAddTableInfo.Location = new System.Drawing.Point(915, 119);
-            this.btnAddTableInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddTableInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTableInfo.Name = "btnAddTableInfo";
             this.btnAddTableInfo.Size = new System.Drawing.Size(97, 52);
             this.btnAddTableInfo.TabIndex = 16;
             this.btnAddTableInfo.Text = "Add";
             this.btnAddTableInfo.UseVisualStyleBackColor = true;
+            this.btnAddTableInfo.Click += new System.EventHandler(this.btnAddTableInfo_Click);
             // 
             // btnAddWaitGroup
             // 
             this.btnAddWaitGroup.Location = new System.Drawing.Point(1496, 967);
-            this.btnAddWaitGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddWaitGroup.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddWaitGroup.Name = "btnAddWaitGroup";
             this.btnAddWaitGroup.Size = new System.Drawing.Size(122, 40);
             this.btnAddWaitGroup.TabIndex = 15;
@@ -143,7 +144,7 @@
             // txtSize
             // 
             this.txtSize.Location = new System.Drawing.Point(1604, 928);
-            this.txtSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSize.Margin = new System.Windows.Forms.Padding(4);
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(121, 29);
             this.txtSize.TabIndex = 14;
@@ -151,7 +152,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(1420, 928);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 29);
             this.txtName.TabIndex = 13;
@@ -179,7 +180,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(1611, 652);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(115, 46);
             this.btnRemove.TabIndex = 10;
@@ -191,7 +192,7 @@
             // 
             this.cboWaitList.FormattingEnabled = true;
             this.cboWaitList.Location = new System.Drawing.Point(1420, 664);
-            this.cboWaitList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboWaitList.Margin = new System.Windows.Forms.Padding(4);
             this.cboWaitList.Name = "cboWaitList";
             this.cboWaitList.Size = new System.Drawing.Size(147, 32);
             this.cboWaitList.TabIndex = 9;
@@ -209,7 +210,7 @@
             // btnAddServer
             // 
             this.btnAddServer.Location = new System.Drawing.Point(1483, 437);
-            this.btnAddServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddServer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddServer.Name = "btnAddServer";
             this.btnAddServer.Size = new System.Drawing.Size(136, 35);
             this.btnAddServer.TabIndex = 7;
@@ -220,7 +221,7 @@
             // txtServerName
             // 
             this.txtServerName.Location = new System.Drawing.Point(1484, 384);
-            this.txtServerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServerName.Margin = new System.Windows.Forms.Padding(4);
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Size = new System.Drawing.Size(121, 29);
             this.txtServerName.TabIndex = 6;
@@ -239,7 +240,7 @@
             // 
             this.cboServerList.FormattingEnabled = true;
             this.cboServerList.Location = new System.Drawing.Point(1483, 115);
-            this.cboServerList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboServerList.Margin = new System.Windows.Forms.Padding(4);
             this.cboServerList.Name = "cboServerList";
             this.cboServerList.Size = new System.Drawing.Size(147, 32);
             this.cboServerList.TabIndex = 4;
@@ -258,7 +259,7 @@
             // 
             this.cboTableList.FormattingEnabled = true;
             this.cboTableList.Location = new System.Drawing.Point(44, 116);
-            this.cboTableList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboTableList.Margin = new System.Windows.Forms.Padding(4);
             this.cboTableList.Name = "cboTableList";
             this.cboTableList.Size = new System.Drawing.Size(697, 32);
             this.cboTableList.TabIndex = 2;

@@ -13,7 +13,6 @@ namespace RestaurantSeatingProject
 {
     public partial class GUI : Form
     {
-        Waitgroup aWaitgroup;
         public GUI()
         {
             InitializeComponent();
@@ -52,6 +51,12 @@ namespace RestaurantSeatingProject
             {
                 cboWaitList.Items.Add(i);
             }
+        }
+
+        private void btnAddTableInfo_Click(object sender, EventArgs e)
+        {
+            AddGroup add = new AddGroup();
+            add.Show();
         }
     }
 }
