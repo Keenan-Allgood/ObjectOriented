@@ -28,7 +28,13 @@ namespace RestaurantSeatingProject
 
         private void btnAddServer_Click(object sender, EventArgs e)
         {
-            cboServerList.Items.Add(txtServerName.Text);
+            Server ourServers = new Server(txtServerName.Text);
+            ourServers.AddServer();
+            cboServerList.Items.Clear();
+            foreach (var i in ourServers.ShowList())
+            {
+                cboServerList.Items.Add(i);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

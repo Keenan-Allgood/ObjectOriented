@@ -24,7 +24,14 @@ namespace RestaurantSeatingProject
 
         private void AddGroup_Load(object sender, EventArgs e)
         {
-            
+            cboServer.Items.Clear();
+            cboServerWaitlist.Items.Clear();
+            Server ourServers = new Server();
+            foreach (var i in ourServers.ShowList())
+            {
+                cboServer.Items.Add(i);
+                cboServerWaitlist.Items.Add(i);
+            }
         }
     }
 }
