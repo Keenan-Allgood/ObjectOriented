@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class Waitgroup
+    class WaitList
     {
         private int size;
         private string name;
@@ -14,12 +14,12 @@ namespace RestaurantSeatingProject
         private static int counter = 0;
         public static List<String> waitgroupList = new List<String>();
 
-        public Waitgroup()
+        public WaitList()
         {
 
         }
 
-        public Waitgroup(string TheName, int TheSize)
+        public WaitList(string TheName, int TheSize)
         {
             this.name = TheName;
             this.size = TheSize;
