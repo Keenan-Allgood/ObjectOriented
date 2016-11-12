@@ -10,9 +10,6 @@ namespace RestaurantSeatingProject
     {
         private int size;
         private string tableID;
-        //private Server server;
-        //private string lastName;
-        //private Group[] groups;
 
         public Table()
         {
