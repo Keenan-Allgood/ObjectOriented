@@ -10,7 +10,9 @@ namespace RestaurantSeatingProject
     {
         private int size;
         private string name;
-        private  static Waitgroup[] aWaitgroup;
+        public static object[,] aWaitgroup = new object[100,2 ];
+        private static int counter = 0;
+        public static List<String> waitgroupList = new List<String>();
 
         public Waitgroup()
         {
@@ -35,10 +37,18 @@ namespace RestaurantSeatingProject
             set { name = value; }
         }
 
-        public Waitgroup[] TheWaitgroup
+        public int AddGroup(string TheName, int TheSize)
         {
-            get { return aWaitgroup; }
-            set { aWaitgroup = value; }
+            aWaitgroup[counter, 0] = TheName;
+            aWaitgroup[counter, 1] = TheSize;
+            waitgroupList.Add(TheName +"    "+ TheSize.ToString());
+            counter =counter+1;
+            return counter;
+        }
+
+        public List<String> ShowList()
+        {
+            return waitgroupList;
         }
     }
 }

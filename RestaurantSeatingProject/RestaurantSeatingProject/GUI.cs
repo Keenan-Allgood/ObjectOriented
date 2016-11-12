@@ -13,7 +13,7 @@ namespace RestaurantSeatingProject
 {
     public partial class GUI : Form
     {
-        Waitgroup newWaitgroup;
+        Waitgroup aWaitgroup;
         public GUI()
         {
             InitializeComponent();
@@ -25,9 +25,6 @@ namespace RestaurantSeatingProject
             cboServerList.Items.Add("Ann");
             cboServerList.Items.Add("Jenny");
             TableDA.GetAllTables();
-            cboWaitList.Items.Add("Goff");
-            cboWaitList.Items.Add("Johnson");
-            cboWaitList.Items.Add("Obama");
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -42,7 +39,19 @@ namespace RestaurantSeatingProject
 
         private void btnAddWaitGroup_Click(object sender, EventArgs e)
         {
-           
+            Waitgroup aWaitgroup = new Waitgroup();
+            aWaitgroup.AddGroup(txtName.Text, Convert.ToInt32(txtSize.Text));
+            AddWaitGroupToList();
+        }
+
+        private void AddWaitGroupToList()
+        {
+            Waitgroup aWaitgroup = new Waitgroup();
+            cboWaitList.Items.Clear();
+            foreach (var i in aWaitgroup.ShowList())
+            {
+                cboWaitList.Items.Add(i);
+            }
         }
     }
 }
