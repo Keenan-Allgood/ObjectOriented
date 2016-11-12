@@ -23,40 +23,40 @@ namespace RestaurantSeatingProject
             TableDA.GetAllTables();
             foreach (var i in TableDA.GetAllTables())
             {
-                cboTableList.Items.Add(i.ToString());
+                cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
             }
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
         {
-            Server ourServers = new Server(txtServerName.Text);
+            Server ourServers = new Server(htxtServerName.Text);
             ourServers.AddServer();
-            cboServerList.Items.Clear();
+            hcboServerList.Items.Clear();
             foreach (var i in ourServers.ShowList())
             {
-                cboServerList.Items.Add(i);
+                hcboServerList.Items.Add(i);
             }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            cboWaitList.Items.Remove(cboWaitList.SelectedItem);
+            hcboWaitList.Items.Remove(hcboWaitList.SelectedItem);
         }
 
         private void btnAddWaitGroup_Click(object sender, EventArgs e)
         {
-            Waitgroup aWaitgroup = new Waitgroup();
-            aWaitgroup.AddGroup(txtName.Text, Convert.ToInt32(txtSize.Text));
+            WaitList aWaitgroup = new WaitList();
+            aWaitgroup.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
             AddWaitGroupToList();
         }
 
         private void AddWaitGroupToList()
         {
-            Waitgroup aWaitgroup = new Waitgroup();
-            cboWaitList.Items.Clear();
+            WaitList aWaitgroup = new WaitList();
+            hcboWaitList.Items.Clear();
             foreach (var i in aWaitgroup.ShowList())
             {
-                cboWaitList.Items.Add(i);
+                hcboWaitList.Items.Add(i);
             }
         }
 
@@ -64,6 +64,12 @@ namespace RestaurantSeatingProject
         {
             AddGroup add = new AddGroup();
             add.Show();
+        }
+
+        private void btnCreateLayout_Click(object sender, EventArgs e)
+        {
+            RestaurantLayout frmLayout = new RestaurantLayout();
+            frmLayout.ShowDialog();
         }
     }
 }
