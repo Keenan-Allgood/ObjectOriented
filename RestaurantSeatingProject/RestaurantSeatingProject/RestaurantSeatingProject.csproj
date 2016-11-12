@@ -94,7 +94,7 @@
     <Compile Include="Server.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TableDA.cs" />
-    <Compile Include="Waitgroup.cs" />
+    <Compile Include="WaitList.cs" />
     <EmbeddedResource Include="AddGroup.resx">
       <DependentUpon>AddGroup.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,7 +28,7 @@ namespace RestaurantSeatingProject
             cboServerWaitlist.Items.Clear();
             cboWaitlistGroup.Items.Clear();
             Server ourServers = new Server();
-            Waitgroup ourWaitgroup = new Waitgroup();
+            WaitList ourWaitgroup = new WaitList();
             foreach (var i in ourServers.ShowList())
             {
                 cboServer.Items.Add(i);
