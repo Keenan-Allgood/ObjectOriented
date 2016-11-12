@@ -48,9 +48,9 @@
             this.lblServerList = new System.Windows.Forms.Label();
             this.cboTableList = new System.Windows.Forms.ComboBox();
             this.lblTableList = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            //this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            //this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            //this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabManager = new System.Windows.Forms.TabPage();
             this.cboRestaurant = new System.Windows.Forms.ComboBox();
             this.btnCreateLayout = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.tabHost.Controls.Add(this.lblServerList);
             this.tabHost.Controls.Add(this.cboTableList);
             this.tabHost.Controls.Add(this.lblTableList);
-            this.tabHost.Controls.Add(this.shapeContainer1);
+            //this.tabHost.Controls.Add(this.shapeContainer1);
             this.tabHost.Location = new System.Drawing.Point(4, 33);
             this.tabHost.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tabHost.Name = "tabHost";
@@ -276,33 +276,33 @@
             // 
             // shapeContainer1
             // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2,
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1759, 1013);
-            this.shapeContainer1.TabIndex = 0;
-            this.shapeContainer1.TabStop = false;
+            //this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            //this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            //this.shapeContainer1.Name = "shapeContainer1";
+            //this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            //this.lineShape2,
+            //this.lineShape1});
+            //this.shapeContainer1.Size = new System.Drawing.Size(1759, 1013);
+            //this.shapeContainer1.TabIndex = 0;
+            //this.shapeContainer1.TabStop = false;
             // 
             // lineShape2
             // 
-            this.lineShape2.BorderWidth = 10;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 1077;
-            this.lineShape2.X2 = 1439;
-            this.lineShape2.Y1 = 447;
-            this.lineShape2.Y2 = 447;
+            //this.lineShape2.BorderWidth = 10;
+            //this.lineShape2.Name = "lineShape2";
+            //this.lineShape2.X1 = 1077;
+            //this.lineShape2.X2 = 1439;
+            //this.lineShape2.Y1 = 447;
+            //this.lineShape2.Y2 = 447;
             // 
             // lineShape1
             // 
-            this.lineShape1.BorderWidth = 10;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 1074;
-            this.lineShape1.X2 = 1075;
-            this.lineShape1.Y1 = 839;
-            this.lineShape1.Y2 = 3;
+            //this.lineShape1.BorderWidth = 10;
+            //this.lineShape1.Name = "lineShape1";
+            //this.lineShape1.X1 = 1074;
+            //this.lineShape1.X2 = 1075;
+            //this.lineShape1.Y1 = 839;
+            //this.lineShape1.Y2 = 3;
             // 
             // tabManager
             // 
@@ -390,8 +390,8 @@
         private System.Windows.Forms.Label lblServerList;
         private System.Windows.Forms.ComboBox cboTableList;
         private System.Windows.Forms.Label lblTableList;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        //private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        //private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        //private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }

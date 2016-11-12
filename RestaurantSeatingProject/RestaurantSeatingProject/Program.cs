@@ -9,7 +9,7 @@ namespace RestaurantSeatingProject
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the aapplication.
         /// </summary> keenan was here
         [STAThread]
         static void Main()
