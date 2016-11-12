@@ -25,6 +25,16 @@ namespace RestaurantSeatingProject
             {
                 cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
             }
+            Server ourServers = new RestaurantSeatingProject.Server("Barry");
+            ourServers.AddServer();
+            ourServers = new RestaurantSeatingProject.Server("Cheryl");
+            ourServers.AddServer();
+            ourServers = new RestaurantSeatingProject.Server("Bonnie");
+            ourServers.AddServer();
+            foreach (var i in ourServers.ShowList())
+            {
+                hcboServerList.Items.Add(i);
+            }
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -60,16 +70,25 @@ namespace RestaurantSeatingProject
             }
         }
 
-        private void btnAddTableInfo_Click(object sender, EventArgs e)
-        {
-            AddGroup add = new AddGroup();
-            add.Show();
-        }
-
         private void btnCreateLayout_Click(object sender, EventArgs e)
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
+        }
+
+        private void hbtnAddGroup_Click(object sender, EventArgs e)
+        {
+            if (cboTableList.SelectedIndex>-1)
+            {
+                AddGroup add = new AddGroup();
+                add.Show();
+            }
+            
+        }
+
+        private void hbtnRemoveGroup_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
