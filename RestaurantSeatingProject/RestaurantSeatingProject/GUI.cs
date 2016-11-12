@@ -65,5 +65,11 @@ namespace RestaurantSeatingProject
             AddGroup add = new AddGroup();
             add.Show();
         }
+
+        private void btnCreateLayout_Click(object sender, EventArgs e)
+        {
+            RestaurantLayout frmLayout = new RestaurantLayout();
+            frmLayout.ShowDialog();
+        }
     }
 }
