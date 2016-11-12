@@ -14,6 +14,8 @@ namespace RestaurantSeatingProject
     public partial class GUI : Form
     {
         List<Restaurant> oRestaurantList = new List<Restaurant>();
+        List<Table> oTableList = new List<Table>();
+
         public GUI()
         {
             InitializeComponent();
@@ -21,8 +23,7 @@ namespace RestaurantSeatingProject
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            LoadTableList();
-            LoadRestaurantList();
+            InitTableRestaurant();
             hcboTableList.SelectedIndex = 0;
             cboTableList.SelectedIndex = 0;
             cboRestaurant.SelectedIndex = 0;
@@ -71,27 +72,48 @@ namespace RestaurantSeatingProject
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
+            
         }
 
         private void LoadTableList()
         {
-            TableDA.GetAllTables();
-            foreach (var i in TableDA.GetAllTables())
+            hcboTableList.Items.Clear();
+            cboTableList.Items.Clear();
+            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurant.SelectedIndex);
+            foreach (var i in oCurrentRestaurant.TableList)
             {
-                cboTableList.Items.Add(i.ToString());
+                cboTableList.Items.Add(i);
                 hcboTableList.Items.Add(i.ToString());
             }
         }
         private void LoadRestaurantList()
         {
-            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley");
-            oRestaurantList.Add(oRestaurant);
+            cboRestaurant.Items.Clear();
 
             foreach( Restaurant r in oRestaurantList)
             {
                 cboRestaurant.Items.Add(r);
             }     
         }
+
+        public void InitTableRestaurant()
+        {
+            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", TableDA.GetAllTables());
+            oRestaurantList.Add(oRestaurant);
+
+            foreach (Restaurant r in oRestaurantList)
+            {
+                cboRestaurant.Items.Add(r);
+            }
+
+            foreach (var i in oRestaurant.TableList)
+            {
+                cboTableList.Items.Add(i.ToString());
+                hcboTableList.Items.Add(i.ToString());
+            }
+        }
+
+        
 
 
     }

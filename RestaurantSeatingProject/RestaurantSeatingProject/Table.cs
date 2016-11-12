@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class Table
+    public class Table
     {
         private int size;
         private string tableID;
