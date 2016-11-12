@@ -13,6 +13,9 @@ namespace RestaurantSeatingProject
 {
     public partial class GUI : Form
     {
+        List<Restaurant> oRestaurantList = new List<Restaurant>();
+        List<Table> oTableList = new List<Table>();
+
         public GUI()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace RestaurantSeatingProject
             TableDA.GetAllTables();
             foreach (var i in TableDA.GetAllTables())
             {
-                hcboTableList.Items.Add(i);
+                cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
             }
         }
 
@@ -70,18 +73,18 @@ namespace RestaurantSeatingProject
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
+            
         }
 
-        private void hbtnRemoveGroup_Click(object sender, EventArgs e)
+        private void LoadTableList()
         {
-            Table selectedTable = (Table)hcboTableList.SelectedItem;
-            selectedTable.clearTable();
-
             hcboTableList.Items.Clear();
-
-            foreach (var i in TableDA.GetAllTables())
+            cboTableList.Items.Clear();
+            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurant.SelectedIndex);
+            foreach (var i in oCurrentRestaurant.TableList)
             {
-                hcboTableList.Items.Add(i);
+                cboTableList.Items.Add(i);
+                hcboTableList.Items.Add(i.ToString());
             }
         }
     }

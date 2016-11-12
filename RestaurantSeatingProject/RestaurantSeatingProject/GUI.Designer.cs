@@ -53,9 +53,10 @@
             this.btnAddTableInfo = new System.Windows.Forms.Button();
             this.cboTableList = new System.Windows.Forms.ComboBox();
             this.lblTableList = new System.Windows.Forms.Label();
-            this.cboRestaurant = new System.Windows.Forms.ComboBox();
-            this.btnCreateLayout = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.hbtnRemoveGroup = new System.Windows.Forms.Button();
+            this.hbtnAddGroup = new System.Windows.Forms.Button();
+            this.hcmobTableList = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabHost.SuspendLayout();
             this.tabManager.SuspendLayout();
@@ -276,6 +277,33 @@
             this.tabManager.Text = "MANAGER";
             this.tabManager.UseVisualStyleBackColor = true;
             // 
+            // cboRestaurant
+            // 
+            this.cboRestaurant.FormattingEnabled = true;
+            this.cboRestaurant.Location = new System.Drawing.Point(39, 16);
+            this.cboRestaurant.Name = "cboRestaurant";
+            this.cboRestaurant.Size = new System.Drawing.Size(249, 21);
+            this.cboRestaurant.TabIndex = 1;
+            // 
+            // btnCreateLayout
+            // 
+            this.btnCreateLayout.Location = new System.Drawing.Point(337, 16);
+            this.btnCreateLayout.Name = "btnCreateLayout";
+            this.btnCreateLayout.Size = new System.Drawing.Size(120, 24);
+            this.btnCreateLayout.TabIndex = 2;
+            this.btnCreateLayout.Text = "Create Layout";
+            this.btnCreateLayout.UseVisualStyleBackColor = true;
+            this.btnCreateLayout.Click += new System.EventHandler(this.btnCreateLayout_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(493, 16);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(120, 24);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete Layout";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // btnRemoveTableInfo
             // 
             this.btnRemoveTableInfo.Location = new System.Drawing.Point(635, 71);
@@ -308,6 +336,7 @@
             // 
             // cboTableList
             // 
+            this.cboTableList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTableList.FormattingEnabled = true;
             this.cboTableList.Location = new System.Drawing.Point(31, 70);
             this.cboTableList.Margin = new System.Windows.Forms.Padding(2);
@@ -335,13 +364,22 @@
             // 
             // btnCreateLayout
             // 
-            this.btnCreateLayout.Location = new System.Drawing.Point(337, 16);
-            this.btnCreateLayout.Name = "btnCreateLayout";
-            this.btnCreateLayout.Size = new System.Drawing.Size(120, 24);
-            this.btnCreateLayout.TabIndex = 2;
-            this.btnCreateLayout.Text = "Create Layout";
-            this.btnCreateLayout.UseVisualStyleBackColor = true;
-            this.btnCreateLayout.Click += new System.EventHandler(this.btnCreateLayout_Click);
+            this.hbtnAddGroup.Location = new System.Drawing.Point(448, 102);
+            this.hbtnAddGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.hbtnAddGroup.Name = "hbtnAddGroup";
+            this.hbtnAddGroup.Size = new System.Drawing.Size(101, 28);
+            this.hbtnAddGroup.TabIndex = 25;
+            this.hbtnAddGroup.Text = "Add Group";
+            this.hbtnAddGroup.UseVisualStyleBackColor = true;
+            // 
+            // hcmobTableList
+            // 
+            this.hcmobTableList.FormattingEnabled = true;
+            this.hcmobTableList.Location = new System.Drawing.Point(44, 109);
+            this.hcmobTableList.Margin = new System.Windows.Forms.Padding(2);
+            this.hcmobTableList.Name = "hcmobTableList";
+            this.hcmobTableList.Size = new System.Drawing.Size(382, 21);
+            this.hcmobTableList.TabIndex = 24;
             // 
             // btnDelete
             // 

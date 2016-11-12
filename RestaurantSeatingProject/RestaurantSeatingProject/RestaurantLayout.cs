@@ -16,5 +16,12 @@ namespace RestaurantSeatingProject
         {
             InitializeComponent();
         }
+
+        public Restaurant AddRestaurant()
+        {
+            this.ShowDialog();
+            Restaurant oNewRestaurant = new Restaurant(txtName.Text, txtAddress.Text, txtManager.Text, txtHost.Text, null);
+            return oNewRestaurant;
+        }
     }
 }
