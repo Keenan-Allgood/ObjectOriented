@@ -39,5 +39,9 @@ namespace RestaurantSeatingProject
             set { tableID = value; }
         }
 
+        public override string ToString()
+        {
+            return "Table Number: " + TheTable + " || Table Size: " + TheSize;
+        }
     }
 }
