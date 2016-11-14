@@ -26,6 +26,7 @@ namespace RestaurantSeatingProject
             hcboTableList.SelectedIndex = 0;
             cboTableList.SelectedIndex = 0;
             cboRestaurant.SelectedIndex = 0;
+            lblAddError.Text = "";
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -61,12 +62,6 @@ namespace RestaurantSeatingProject
             }
         }
 
-        private void btnAddTableInfo_Click(object sender, EventArgs e)
-        {
-            AddGroup add = new AddGroup();
-            add.Show();
-        }
-
         private void btnCreateLayout_Click(object sender, EventArgs e)
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
@@ -86,13 +81,17 @@ namespace RestaurantSeatingProject
         {
             Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley");
             oRestaurantList.Add(oRestaurant);
-
+            lblUser.Text = "User signed in: " + oRestaurant.Host.ToString();
             foreach( Restaurant r in oRestaurantList)
             {
                 cboRestaurant.Items.Add(r);
             }     
         }
 
-
+        private void hbtnAddGroup_Click(object sender, EventArgs e)
+        {
+                AddGroup add = new AddGroup();
+                add.Show();
+        }
     }
 }
