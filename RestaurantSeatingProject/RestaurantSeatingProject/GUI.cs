@@ -13,6 +13,7 @@ namespace RestaurantSeatingProject
 {
     public partial class GUI : Form
     {
+        List<Restaurant> oRestaurantList = new List<Restaurant>();
         public GUI()
         {
             InitializeComponent();
@@ -20,21 +21,11 @@ namespace RestaurantSeatingProject
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            TableDA.GetAllTables();
-            foreach (var i in TableDA.GetAllTables())
-            {
-                cboTableList.Items.Add("Table Number: " + i.TheTable + " Size: " + i.TheSize);
-            }
-            Server ourServers = new RestaurantSeatingProject.Server("Barry");
-            ourServers.AddServer();
-            ourServers = new RestaurantSeatingProject.Server("Cheryl");
-            ourServers.AddServer();
-            ourServers = new RestaurantSeatingProject.Server("Bonnie");
-            ourServers.AddServer();
-            foreach (var i in ourServers.ShowList())
-            {
-                hcboServerList.Items.Add(i);
-            }
+            LoadTableList();
+            LoadRestaurantList();
+            hcboTableList.SelectedIndex = 0;
+            cboTableList.SelectedIndex = 0;
+            cboRestaurant.SelectedIndex = 0;
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -70,25 +61,38 @@ namespace RestaurantSeatingProject
             }
         }
 
+        private void btnAddTableInfo_Click(object sender, EventArgs e)
+        {
+            AddGroup add = new AddGroup();
+            add.Show();
+        }
+
         private void btnCreateLayout_Click(object sender, EventArgs e)
         {
             RestaurantLayout frmLayout = new RestaurantLayout();
             frmLayout.ShowDialog();
         }
 
-        private void hbtnAddGroup_Click(object sender, EventArgs e)
+        private void LoadTableList()
         {
-            if (cboTableList.SelectedIndex>-1)
+            TableDA.GetAllTables();
+            foreach (var i in TableDA.GetAllTables())
             {
-                AddGroup add = new AddGroup();
-                add.Show();
+                cboTableList.Items.Add(i.ToString());
+                hcboTableList.Items.Add(i.ToString());
             }
-            
         }
-
-        private void hbtnRemoveGroup_Click(object sender, EventArgs e)
+        private void LoadRestaurantList()
         {
+            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley");
+            oRestaurantList.Add(oRestaurant);
 
+            foreach( Restaurant r in oRestaurantList)
+            {
+                cboRestaurant.Items.Add(r);
+            }     
         }
+
+
     }
 }
