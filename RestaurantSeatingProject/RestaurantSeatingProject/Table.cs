@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class Table
+    public class Table
     {
         private int size;
         private string tableID;
+        private Server theServer;
+        private string groupName;
+        private int groupSize;
 
         public Table()
         {
@@ -20,6 +23,8 @@ namespace RestaurantSeatingProject
         {
             this.tableID = TheTable;
             this.size = TheSize;
+            this.theServer = null;
+            this.groupName = null;
         }
 
         public int TheSize
@@ -38,6 +43,5 @@ namespace RestaurantSeatingProject
         {
             return "Table Number: " + TheTable + " || Table Size: " + TheSize;
         }
-
     }
 }

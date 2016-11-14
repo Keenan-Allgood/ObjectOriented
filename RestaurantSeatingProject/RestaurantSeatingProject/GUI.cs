@@ -14,6 +14,10 @@ namespace RestaurantSeatingProject
     public partial class GUI : Form
     {
         List<Restaurant> oRestaurantList = new List<Restaurant>();
+        List<Table> oTableList = new List<Table>();
+        List<Server> oServerList = new List<Server>();
+        int nRestaurantIndex = 0;
+
         public GUI()
         {
             InitializeComponent();
@@ -21,12 +25,10 @@ namespace RestaurantSeatingProject
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            LoadTableList();
-            LoadRestaurantList();
+            InitTableRestaurant();
+            cboRestaurantList.SelectedIndex = 0;
+            hcboServerList.SelectedIndex = 0;
             hcboTableList.SelectedIndex = 0;
-            cboTableList.SelectedIndex = 0;
-            cboRestaurant.SelectedIndex = 0;
-            lblAddError.Text = "";
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
@@ -62,36 +64,141 @@ namespace RestaurantSeatingProject
             }
         }
 
-        private void btnCreateLayout_Click(object sender, EventArgs e)
+        private void btnAddTableInfo_Click(object sender, EventArgs e)
         {
-            RestaurantLayout frmLayout = new RestaurantLayout();
-            frmLayout.ShowDialog();
+            AddGroup add = new AddGroup();
+            add.Show();
         }
+
+        //private void btnCreateLayout_Click(object sender, EventArgs e)
+        //{
+        //    RestaurantLayout frmLayout = new RestaurantLayout();
+        //    frmLayout.ShowDialog();
+            
+        //}
 
         private void LoadTableList()
         {
-            TableDA.GetAllTables();
-            foreach (var i in TableDA.GetAllTables())
+            hcboTableList.Items.Clear();
+            if(cboRestaurantList.Items.Count > 0)
             {
-                cboTableList.Items.Add(i.ToString());
-                hcboTableList.Items.Add(i.ToString());
-            }
-        }
-        private void LoadRestaurantList()
-        {
-            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley");
-            oRestaurantList.Add(oRestaurant);
-            lblUser.Text = "User signed in: " + oRestaurant.Host.ToString();
-            foreach( Restaurant r in oRestaurantList)
+                Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
+                foreach (var i in oCurrentRestaurant.TableList)
+                {
+                    hcboTableList.Items.Add(i.ToString());
+                }
+                if (hcboTableList.Items.Count > 0)
+                {
+                    hcboTableList.SelectedIndex = 0;
+                }
+                else
+                {
+                    hcboTableList.SelectedIndex = -1;
+                }
+            } 
+            else
             {
-                cboRestaurant.Items.Add(r);
-            }     
+                //hcboTableList.Items.Clear();
+                //hcboServerList.Items.Clear();
+                //hcboWaitList.Items.Clear();
+                hcboTableList.SelectedIndex = -1;
+                hcboServerList.SelectedIndex = -1;
+                hcboWaitList.SelectedIndex = -1;
+            }                   
         }
 
-        private void hbtnAddGroup_Click(object sender, EventArgs e)
+        private void LoadRestaurantList()
+        {     
+            cboRestaurantList.Items.Clear();
+
+            foreach (Restaurant r in oRestaurantList)
+            {
+                cboRestaurantList.Items.Add(r);
+            }
+            cboRestaurantList.SelectedIndex = nRestaurantIndex;
+
+        }
+
+        private void btnCreateRestaurant_Click(object sender, EventArgs e)
         {
-                AddGroup add = new AddGroup();
-                add.Show();
+            RestaurantLayout frmLayout = new RestaurantLayout();
+            Restaurant oNewRestaurant = frmLayout.AddRestaurant();
+
+            if(oNewRestaurant != null)
+            {
+                Restaurant.AddRestaurant(oNewRestaurant);
+                oRestaurantList = Restaurant.GetRestaurants();
+                LoadRestaurantList();
+            }
+            else
+            {
+                cboRestaurantList.SelectedIndex = 0;
+            }
+        }
+
+        public void InitTableRestaurant()
+        {
+            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", TableDA.GetAllTables());
+            Restaurant.AddRestaurant(oRestaurant);
+            oRestaurantList = Restaurant.GetRestaurants();
+            Server oDefaultServer = new Server("Keenan Allgood");           
+            oServerList.Add(oDefaultServer);
+            hcboServerList.Items.Add(oDefaultServer);
+ 
+            foreach (Restaurant r in oRestaurantList)
+            {
+                cboRestaurantList.Items.Add(r);
+            }
+ 
+            foreach (var i in oRestaurant.TableList)
+            {
+                hcboTableList.Items.Add(i.ToString());
+            }
+      }
+
+        private void cboRestaurantList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nRestaurantIndex = cboRestaurantList.SelectedIndex; 
+            LoadTableList();
+        }
+
+        private void btnEditRestaurant_Click(object sender, EventArgs e)
+        {
+            RestaurantLayout frmRestaurantLayout = new RestaurantLayout();
+            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
+            oCurrentRestaurant = frmRestaurantLayout.EditRestaurant(oCurrentRestaurant);
+            if(oCurrentRestaurant != null)
+            {
+                Restaurant.DeleteRestaurant(cboRestaurantList.SelectedIndex);
+                Restaurant.AddRestaurant(oCurrentRestaurant);
+                oRestaurantList = Restaurant.GetRestaurants();
+                nRestaurantIndex = oRestaurantList.Count - 1;
+                LoadRestaurantList();
+                LoadTableList();
+            }                   
+        }
+
+        private void btnDeleteRestaurant_Click(object sender, EventArgs e)
+        {
+            RestaurantLayout frmRestaurantLayout = new RestaurantLayout();
+            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
+            bool bDelete = frmRestaurantLayout.DeleteRestaurant(oCurrentRestaurant);
+
+            if (bDelete == true)
+            {
+                Restaurant.DeleteRestaurant(cboRestaurantList.SelectedIndex);
+                oRestaurantList = Restaurant.GetRestaurants();
+                if(oRestaurantList.Count > 0)
+                {
+                    nRestaurantIndex = 0;
+                }
+                else
+                {
+                    nRestaurantIndex = -1;
+                }
+            }
+            LoadRestaurantList();
+            LoadTableList();
         }
     }
 }
