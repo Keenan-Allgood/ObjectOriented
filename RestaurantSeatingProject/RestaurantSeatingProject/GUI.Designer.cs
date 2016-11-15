@@ -106,7 +106,7 @@
             // 
             // hbtnRemoveGroup
             // 
-            this.hbtnRemoveGroup.Location = new System.Drawing.Point(591, 102);
+            this.hbtnRemoveGroup.Location = new System.Drawing.Point(575, 109);
             this.hbtnRemoveGroup.Margin = new System.Windows.Forms.Padding(2);
             this.hbtnRemoveGroup.Name = "hbtnRemoveGroup";
             this.hbtnRemoveGroup.Size = new System.Drawing.Size(113, 28);
@@ -117,7 +117,7 @@
             // 
             // hbtnAddGroup
             // 
-            this.hbtnAddGroup.Location = new System.Drawing.Point(448, 102);
+            this.hbtnAddGroup.Location = new System.Drawing.Point(446, 109);
             this.hbtnAddGroup.Margin = new System.Windows.Forms.Padding(2);
             this.hbtnAddGroup.Name = "hbtnAddGroup";
             this.hbtnAddGroup.Size = new System.Drawing.Size(101, 28);
@@ -129,11 +129,12 @@
             // hcboTableList
             // 
             this.hcboTableList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hcboTableList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hcboTableList.FormattingEnabled = true;
             this.hcboTableList.Location = new System.Drawing.Point(44, 109);
             this.hcboTableList.Margin = new System.Windows.Forms.Padding(2);
             this.hcboTableList.Name = "hcboTableList";
-            this.hcboTableList.Size = new System.Drawing.Size(382, 21);
+            this.hcboTableList.Size = new System.Drawing.Size(382, 24);
             this.hcboTableList.TabIndex = 24;
             // 
             // btnAddWaitGroup
@@ -185,7 +186,7 @@
             // 
             // hbtnRemoveFromWaitlist
             // 
-            this.hbtnRemoveFromWaitlist.Location = new System.Drawing.Point(879, 353);
+            this.hbtnRemoveFromWaitlist.Location = new System.Drawing.Point(809, 388);
             this.hbtnRemoveFromWaitlist.Margin = new System.Windows.Forms.Padding(2);
             this.hbtnRemoveFromWaitlist.Name = "hbtnRemoveFromWaitlist";
             this.hbtnRemoveFromWaitlist.Size = new System.Drawing.Size(63, 25);
@@ -197,11 +198,12 @@
             // hcboWaitList
             // 
             this.hcboWaitList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hcboWaitList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.hcboWaitList.FormattingEnabled = true;
             this.hcboWaitList.Location = new System.Drawing.Point(775, 360);
             this.hcboWaitList.Margin = new System.Windows.Forms.Padding(2);
             this.hcboWaitList.Name = "hcboWaitList";
-            this.hcboWaitList.Size = new System.Drawing.Size(82, 21);
+            this.hcboWaitList.Size = new System.Drawing.Size(128, 24);
             this.hcboWaitList.TabIndex = 9;
             // 
             // lblWaitList
@@ -246,11 +248,12 @@
             // hcboServerList
             // 
             this.hcboServerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hcboServerList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.hcboServerList.FormattingEnabled = true;
-            this.hcboServerList.Location = new System.Drawing.Point(809, 62);
+            this.hcboServerList.Location = new System.Drawing.Point(775, 62);
             this.hcboServerList.Margin = new System.Windows.Forms.Padding(2);
             this.hcboServerList.Name = "hcboServerList";
-            this.hcboServerList.Size = new System.Drawing.Size(82, 21);
+            this.hcboServerList.Size = new System.Drawing.Size(128, 24);
             this.hcboServerList.TabIndex = 4;
             // 
             // lblServerList
