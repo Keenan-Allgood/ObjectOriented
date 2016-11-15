@@ -135,7 +135,7 @@ namespace RestaurantSeatingProject
             oTableList.RemoveAt(cboTableList.SelectedIndex);
             foreach(Table i in oTableList)
             {
-                i.TheTable = Convert.ToString(nNewIndex);
+                i.TableID = Convert.ToString(nNewIndex);
                 nNewIndex++;
             }
             ReloadTableList();

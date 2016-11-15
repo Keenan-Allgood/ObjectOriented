@@ -16,7 +16,7 @@ namespace RestaurantSeatingProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            TableDA.GetAllTables();
+            TableDA theTables = new RestaurantSeatingProject.TableDA();
             Application.Run(new GUI());
             
         }

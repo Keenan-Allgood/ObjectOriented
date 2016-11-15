@@ -70,6 +70,12 @@
       <DependentUpon>AddGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="FloorPlan.cs" />
+    <Compile Include="GroupToTableUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupToTableUI.Designer.cs">
+      <DependentUpon>GroupToTableUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +95,12 @@
     <Compile Include="Table.cs" />
     <Compile Include="TableDA.cs" />
     <Compile Include="WaitList.cs" />
+    <Compile Include="WaitListGroup.cs" />
     <EmbeddedResource Include="AddGroup.resx">
       <DependentUpon>AddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupToTableUI.resx">
+      <DependentUpon>GroupToTableUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>

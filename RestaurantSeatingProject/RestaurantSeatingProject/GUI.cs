@@ -16,6 +16,7 @@ namespace RestaurantSeatingProject
         List<Restaurant> oRestaurantList = new List<Restaurant>();
         List<Table> oTableList = new List<Table>();
         List<Server> oServerList = new List<Server>();
+        WaitList aWaitList = new WaitList();
         int nRestaurantIndex = 0;
 
         public GUI()
@@ -44,24 +45,26 @@ namespace RestaurantSeatingProject
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            hcboWaitList.Items.Remove(hcboWaitList.SelectedItem);
+            Table clearedTable = (Table)hcboTableList.SelectedItem;
+            clearedTable.clearTable();
+            hcboTableList.Items.Clear();
+
+            LoadTableList();
         }
 
         private void btnAddWaitGroup_Click(object sender, EventArgs e)
         {
-            WaitList aWaitgroup = new WaitList();
-            aWaitgroup.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
-            AddWaitGroupToList();
-        }
-
-        private void AddWaitGroupToList()
-        {
-            WaitList aWaitgroup = new WaitList();
+            aWaitList.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
+    
             hcboWaitList.Items.Clear();
-            foreach (var i in aWaitgroup.ShowList())
+
+            foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
             {
-                hcboWaitList.Items.Add(i);
+                hcboWaitList.Items.Add(wlg);
             }
+
+            htxtGroupName.Text = "";
+            htxtGroupSize.Text = "";
         }
 
         private void btnAddTableInfo_Click(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace RestaurantSeatingProject
                 Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
                 foreach (var i in oCurrentRestaurant.TableList)
                 {
-                    hcboTableList.Items.Add(i.ToString());
+                    hcboTableList.Items.Add(i);
                 }
                 if (hcboTableList.Items.Count > 0)
                 {
@@ -138,7 +141,8 @@ namespace RestaurantSeatingProject
 
         public void InitTableRestaurant()
         {
-            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", TableDA.GetAllTables());
+            TableDA theTables = new TableDA();
+            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", theTables.GetAllTables());
             Restaurant.AddRestaurant(oRestaurant);
             oRestaurantList = Restaurant.GetRestaurants();
             Server oDefaultServer = new Server("Keenan Allgood");           
@@ -150,9 +154,9 @@ namespace RestaurantSeatingProject
                 cboRestaurantList.Items.Add(r);
             }
  
-            foreach (var i in oRestaurant.TableList)
+            foreach (Table i in oRestaurant.TableList)
             {
-                hcboTableList.Items.Add(i.ToString());
+                hcboTableList.Items.Add(i);
             }
       }
 
@@ -199,6 +203,35 @@ namespace RestaurantSeatingProject
             }
             LoadRestaurantList();
             LoadTableList();
+        }
+
+        private void hbtnAddGroup_Click(object sender, EventArgs e)
+        {
+            GroupToTableUI addGroup = new GroupToTableUI((Table)hcboTableList.SelectedItem, aWaitList, oServerList);
+            addGroup.ShowDialog();
+
+            LoadTableList();
+
+            hcboWaitList.Items.Clear();
+
+            foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+            {
+                hcboWaitList.Items.Add(wlg);
+            }
+        }
+
+        private void hbtnRemoveFromWaitlist_Click(object sender, EventArgs e)
+        {
+            WaitListGroup wlgRemove = (WaitListGroup)hcboWaitList.SelectedItem;
+
+            aWaitList.RemoveGroup(wlgRemove);
+
+            hcboWaitList.Items.Clear();
+
+            foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+            {
+                hcboWaitList.Items.Add(wlg);
+            }
         }
     }
 }

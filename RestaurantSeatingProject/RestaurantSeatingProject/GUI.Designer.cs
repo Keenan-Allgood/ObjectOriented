@@ -124,6 +124,7 @@
             this.hbtnAddGroup.TabIndex = 25;
             this.hbtnAddGroup.Text = "Add Group";
             this.hbtnAddGroup.UseVisualStyleBackColor = true;
+            this.hbtnAddGroup.Click += new System.EventHandler(this.hbtnAddGroup_Click);
             // 
             // hcboTableList
             // 
@@ -191,7 +192,7 @@
             this.hbtnRemoveFromWaitlist.TabIndex = 10;
             this.hbtnRemoveFromWaitlist.Text = "Remove";
             this.hbtnRemoveFromWaitlist.UseVisualStyleBackColor = true;
-            this.hbtnRemoveFromWaitlist.Click += new System.EventHandler(this.btnRemove_Click);
+            this.hbtnRemoveFromWaitlist.Click += new System.EventHandler(this.hbtnRemoveFromWaitlist_Click);
             // 
             // hcboWaitList
             // 

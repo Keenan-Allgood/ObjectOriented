@@ -34,9 +34,9 @@ namespace RestaurantSeatingProject
                 cboServer.Items.Add(i);
                 cboServerWaitlist.Items.Add(i);
             }
-            foreach (var i in ourWaitgroup.ShowList())
+            foreach (WaitListGroup wlg in ourWaitgroup.WaitGroupList)
             {
-                cboWaitlistGroup.Items.Add(i);
+                cboWaitlistGroup.Items.Add(wlg);
             }
         }
     }

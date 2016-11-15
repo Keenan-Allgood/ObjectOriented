@@ -10,7 +10,7 @@ namespace RestaurantSeatingProject
     {
         private int size;
         private string tableID;
-        private Server theServer;
+        private Server aServer;
         private string groupName;
         private int groupSize;
 
@@ -19,29 +19,68 @@ namespace RestaurantSeatingProject
 
         }
 
-        public Table(string TheTable, int TheSize)
+        public Table(string ID, int size)
         {
-            this.tableID = TheTable;
-            this.size = TheSize;
-            this.theServer = null;
+            this.tableID = ID;
+            this.size = size;
+            this.aServer = null;
             this.groupName = null;
+            this.groupSize = 0;
         }
 
-        public int TheSize
+        public int Size
         {
             get { return size; }
             set { size = value; }
         }
 
-        public string TheTable
+        public string TableID
         {
             get { return tableID; }
             set { tableID = value; }
         }
 
+        public Server AServer
+        {
+            get { return aServer; }
+            set { aServer = value; }
+        }
+
+        public string GroupName
+        {
+            get { return groupName; }
+            set { groupName = value; }
+        }
+
+        public int GroupSize
+        {
+            get { return groupSize; }
+            set { groupSize = value; }
+        }
+
+        public void clearTable()
+        {
+            groupName = null;
+            aServer = null;
+            groupSize = 0;
+        }
+
         public override string ToString()
         {
-            return "Table Number: " + TheTable + " || Table Size: " + TheSize;
+            string theString;
+
+            theString = "Tbl# " + tableID + " || ";
+
+            if (groupSize == 0)
+            {
+                theString += "TblSize " + size;
+            }
+            else
+            {
+                theString += "GrpSize " + groupSize + "/" + size + " || " + groupName + " || " + aServer;
+            }
+
+            return theString;
         }
     }
 }

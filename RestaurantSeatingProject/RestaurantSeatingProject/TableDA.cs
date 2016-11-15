@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class TableDA
+    public class TableDA
     {
-        public static List<Table> GetAllTables()
+        private List<Table> tables;
+
+        public TableDA()
         {
-            List<Table> tables = new List<Table>();
+            tables = makeTables();
+        }
+
+        private List<Table> makeTables()
+        {
+            List<Table> theTables = new List<Table>();
             Table table1 = new RestaurantSeatingProject.Table("1", 4);
             Table table2 = new RestaurantSeatingProject.Table("2", 6);
             Table table3 = new RestaurantSeatingProject.Table("3", 2);
@@ -22,20 +29,29 @@ namespace RestaurantSeatingProject
             Table table9 = new RestaurantSeatingProject.Table("9", 6);
             Table table10 = new RestaurantSeatingProject.Table("10", 5);
 
-            tables.Add(table1);
-            tables.Add(table2);
-            tables.Add(table3);
-            tables.Add(table4);
-            tables.Add(table5);
-            tables.Add(table6);
-            tables.Add(table7);
-            tables.Add(table8);
-            tables.Add(table9);
-            tables.Add(table10);
+            table8.GroupName = "Mallatt";
+            table8.GroupSize = 3;
+            table8.AServer = new Server("Keenan");
 
-            return tables;
+            theTables.Add(table1);
+            theTables.Add(table2);
+            theTables.Add(table3);
+            theTables.Add(table4);
+            theTables.Add(table5);
+            theTables.Add(table6);
+            theTables.Add(table7);
+            theTables.Add(table8);
+            theTables.Add(table9);
+            theTables.Add(table10);
+
+            return theTables;
         }
 
+        public List<Table> GetAllTables()
+        {
+            return this.tables;
+        }
 
+        
     }
 }

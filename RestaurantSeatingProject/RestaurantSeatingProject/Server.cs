@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class Server
-    {
+    public class Server
+    {   //FIX THIS
+        //The restaurant objects would hold the list of servers (as well as the table and waitlistgroup lists) and not the server object.  The server object
+        //for iteration one will only hold the serverName (for now) --Darrin
         private string serverName;
         public static List<String> serverList = new List<String>();
 
