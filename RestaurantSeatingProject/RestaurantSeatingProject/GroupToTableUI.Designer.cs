@@ -37,61 +37,54 @@
             this.btnAddFromWL = new System.Windows.Forms.Button();
             this.lblServer = new System.Windows.Forms.Label();
             this.cboServerList = new System.Windows.Forms.ComboBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboWaitList
             // 
             this.cboWaitList.FormattingEnabled = true;
-            this.cboWaitList.Location = new System.Drawing.Point(24, 318);
-            this.cboWaitList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboWaitList.Location = new System.Drawing.Point(13, 172);
             this.cboWaitList.Name = "cboWaitList";
-            this.cboWaitList.Size = new System.Drawing.Size(528, 32);
+            this.cboWaitList.Size = new System.Drawing.Size(290, 21);
             this.cboWaitList.TabIndex = 0;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(26, 120);
-            this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblName.Location = new System.Drawing.Point(14, 65);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(123, 25);
+            this.lblName.Size = new System.Drawing.Size(67, 13);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Group Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 185);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(14, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Group Size";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(204, 114);
-            this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtName.Location = new System.Drawing.Point(111, 62);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(349, 29);
+            this.txtName.Size = new System.Drawing.Size(192, 20);
             this.txtName.TabIndex = 3;
-            this.txtName.Tag = "Group Name";
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(204, 179);
-            this.txtSize.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSize.Location = new System.Drawing.Point(111, 97);
             this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(349, 29);
+            this.txtSize.Size = new System.Drawing.Size(192, 20);
             this.txtSize.TabIndex = 4;
-            this.txtSize.Tag = "Group Size";
             // 
             // btnAddFromTxt
             // 
-            this.btnAddFromTxt.Location = new System.Drawing.Point(141, 246);
-            this.btnAddFromTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAddFromTxt.Location = new System.Drawing.Point(77, 133);
             this.btnAddFromTxt.Name = "btnAddFromTxt";
-            this.btnAddFromTxt.Size = new System.Drawing.Size(330, 42);
+            this.btnAddFromTxt.Size = new System.Drawing.Size(180, 23);
             this.btnAddFromTxt.TabIndex = 5;
             this.btnAddFromTxt.Text = "Add Group From Text Boxes";
             this.btnAddFromTxt.UseVisualStyleBackColor = true;
@@ -99,10 +92,9 @@
             // 
             // btnAddFromWL
             // 
-            this.btnAddFromWL.Location = new System.Drawing.Point(141, 380);
-            this.btnAddFromWL.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAddFromWL.Location = new System.Drawing.Point(77, 206);
             this.btnAddFromWL.Name = "btnAddFromWL";
-            this.btnAddFromWL.Size = new System.Drawing.Size(330, 42);
+            this.btnAddFromWL.Size = new System.Drawing.Size(180, 23);
             this.btnAddFromWL.TabIndex = 6;
             this.btnAddFromWL.Text = "Add Group From Waitlist";
             this.btnAddFromWL.UseVisualStyleBackColor = true;
@@ -111,28 +103,36 @@
             // lblServer
             // 
             this.lblServer.AutoSize = true;
-            this.lblServer.Location = new System.Drawing.Point(24, 24);
-            this.lblServer.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblServer.Location = new System.Drawing.Point(13, 13);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(176, 25);
+            this.lblServer.Size = new System.Drawing.Size(95, 13);
             this.lblServer.TabIndex = 7;
             this.lblServer.Text = "SELECT SERVER";
             // 
             // cboServerList
             // 
             this.cboServerList.FormattingEnabled = true;
-            this.cboServerList.Location = new System.Drawing.Point(202, 18);
-            this.cboServerList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboServerList.Location = new System.Drawing.Point(110, 10);
             this.cboServerList.Name = "cboServerList";
-            this.cboServerList.Size = new System.Drawing.Size(349, 32);
+            this.cboServerList.Size = new System.Drawing.Size(192, 21);
             this.cboServerList.TabIndex = 8;
-            this.cboServerList.Tag = "Server List";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(125, 257);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 23);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // GroupToTableUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 454);
+            this.ClientSize = new System.Drawing.Size(324, 292);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cboServerList);
             this.Controls.Add(this.lblServer);
             this.Controls.Add(this.btnAddFromWL);
@@ -142,7 +142,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.cboWaitList);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "GroupToTableUI";
             this.Text = "GroupToTableUI";
             this.ResumeLayout(false);
@@ -161,5 +160,6 @@
         private System.Windows.Forms.Button btnAddFromWL;
         private System.Windows.Forms.Label lblServer;
         private System.Windows.Forms.ComboBox cboServerList;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

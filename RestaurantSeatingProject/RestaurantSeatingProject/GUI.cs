@@ -14,11 +14,10 @@ namespace RestaurantSeatingProject
     public partial class GUI : Form
     {
         List<Restaurant> oRestaurantList = new List<Restaurant>();
-        List<Table> oTableList = new List<Table>();
-        List<Server> oServerList = new List<Server>();
+        Restaurant selectedRestaurant;
+        //List<Table> oTableList = new List<Table>();
+        //List<Server> oServerList = new List<Server>();
         WaitList aWaitList = new WaitList();
-        Validator myValidation = new Validator();
-        int nRestaurantIndex = 0;
 
         public GUI()
         {
@@ -29,22 +28,19 @@ namespace RestaurantSeatingProject
         {
             InitTableRestaurant();
             cboRestaurantList.SelectedIndex = 0;
-            hcboServerList.SelectedIndex = 0;
             hcboTableList.SelectedIndex = 0;
         }
 
         private void btnAddServer_Click(object sender, EventArgs e)
         {
-            if (myValidation.IsPresent(htxtServerName))
+            
+            selectedRestaurant.addServer(new Server(htxtServerName.Text));
+            hcboServerList.Items.Clear();
+            foreach (var i in selectedRestaurant.serverList)
             {
-                Server ourServers = new Server(htxtServerName.Text);
-                ourServers.AddServer();
-                hcboServerList.Items.Clear();
-                foreach (var i in ourServers.ShowList())
-                {
-                    hcboServerList.Items.Add(i);
-                }
+                hcboServerList.Items.Add(i);
             }
+            hcboServerList.SelectedIndex = 0;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -53,33 +49,38 @@ namespace RestaurantSeatingProject
             clearedTable.clearTable();
             hcboTableList.Items.Clear();
 
-            LoadTableList();
+            LoadTableList(selectedRestaurant);
         }
 
         private void btnAddWaitGroup_Click(object sender, EventArgs e)
         {
-            if(myValidation.IsPresent(htxtGroupName)&&myValidation.IsPresent(htxtGroupSize)&&myValidation.IsNumeric(htxtGroupSize))
+            try
             {
-                aWaitList.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
-
-                hcboWaitList.Items.Clear();
-
-                foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+                if (Convert.ToInt32(htxtGroupSize.Text) <= 14 && Convert.ToInt32(htxtGroupSize.Text) > 0)
                 {
-                    hcboWaitList.Items.Add(wlg);
-                }
+                    aWaitList.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
 
-                htxtGroupName.Text = "";
-                htxtGroupSize.Text = "";
+                    hcboWaitList.Items.Clear();
+
+                    foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+                    {
+                        hcboWaitList.Items.Add(wlg);
+                    }
+                    hcboWaitList.SelectedIndex = 0;
+                    htxtGroupName.Text = "";
+                    htxtGroupSize.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("The group size must be no more than 14", "Group Size Issue");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter a number for the group size", "Invalid Input Issue");
             }
         }
-
-        private void btnAddTableInfo_Click(object sender, EventArgs e)
-        {
-            AddGroup add = new AddGroup();
-            add.Show();
-        }
-
+        
         //private void btnCreateLayout_Click(object sender, EventArgs e)
         //{
         //    RestaurantLayout frmLayout = new RestaurantLayout();
@@ -87,13 +88,12 @@ namespace RestaurantSeatingProject
             
         //}
 
-        private void LoadTableList()
+        private void LoadTableList(Restaurant theRestaurant)
         {
             hcboTableList.Items.Clear();
             if(cboRestaurantList.Items.Count > 0)
             {
-                Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
-                foreach (var i in oCurrentRestaurant.TableList)
+                foreach (var i in theRestaurant.TableList)
                 {
                     hcboTableList.Items.Add(i);
                 }
@@ -125,7 +125,7 @@ namespace RestaurantSeatingProject
             {
                 cboRestaurantList.Items.Add(r);
             }
-            cboRestaurantList.SelectedIndex = nRestaurantIndex;
+            cboRestaurantList.SelectedIndex = 0;
 
         }
 
@@ -149,19 +149,18 @@ namespace RestaurantSeatingProject
         public void InitTableRestaurant()
         {
             TableDA theTables = new TableDA();
-            Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", theTables.GetAllTables());
-            Restaurant.AddRestaurant(oRestaurant);
+            selectedRestaurant = new Restaurant("Dino's", "Lincoln", "Keenan Allgood", "Jennifer Lawrence");
+            selectedRestaurant.TableList = theTables.GetAllTables();
+            Restaurant.AddRestaurant(selectedRestaurant);
             oRestaurantList = Restaurant.GetRestaurants();
-            Server oDefaultServer = new Server("Keenan Allgood");
-            oServerList.Add(oDefaultServer);
-            hcboServerList.Items.Add(oDefaultServer);
+            
  
             foreach (Restaurant r in oRestaurantList)
             {
                 cboRestaurantList.Items.Add(r);
             }
  
-            foreach (Table i in oRestaurant.TableList)
+            foreach (Table i in selectedRestaurant.TableList)
             {
                 hcboTableList.Items.Add(i);
             }
@@ -169,68 +168,63 @@ namespace RestaurantSeatingProject
 
         private void cboRestaurantList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            nRestaurantIndex = cboRestaurantList.SelectedIndex; 
-            LoadTableList();
+            selectedRestaurant = (Restaurant)cboRestaurantList.SelectedItem;
+            LoadTableList(selectedRestaurant);
         }
 
         private void btnEditRestaurant_Click(object sender, EventArgs e)
         {
             RestaurantLayout frmRestaurantLayout = new RestaurantLayout();
-            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
-            oCurrentRestaurant = frmRestaurantLayout.EditRestaurant(oCurrentRestaurant);
-            if(oCurrentRestaurant != null)
+            
+            selectedRestaurant = frmRestaurantLayout.EditRestaurant(selectedRestaurant);
+            if(selectedRestaurant != null)
             {
                 Restaurant.DeleteRestaurant(cboRestaurantList.SelectedIndex);
-                Restaurant.AddRestaurant(oCurrentRestaurant);
+                Restaurant.AddRestaurant(selectedRestaurant);
                 oRestaurantList = Restaurant.GetRestaurants();
-                nRestaurantIndex = oRestaurantList.Count - 1;
                 LoadRestaurantList();
-                LoadTableList();
+                LoadTableList(selectedRestaurant);
             }                   
         }
 
         private void btnDeleteRestaurant_Click(object sender, EventArgs e)
         {
             RestaurantLayout frmRestaurantLayout = new RestaurantLayout();
-            Restaurant oCurrentRestaurant = oRestaurantList.ElementAt(cboRestaurantList.SelectedIndex);
-            bool bDelete = frmRestaurantLayout.DeleteRestaurant(oCurrentRestaurant);
+            
+            bool bDelete = frmRestaurantLayout.DeleteRestaurant(selectedRestaurant);
 
             if (bDelete == true)
             {
                 Restaurant.DeleteRestaurant(cboRestaurantList.SelectedIndex);
                 oRestaurantList = Restaurant.GetRestaurants();
-                if(oRestaurantList.Count > 0)
-                {
-                    nRestaurantIndex = 0;
-                }
-                else
-                {
-                    nRestaurantIndex = -1;
-                }
             }
             LoadRestaurantList();
-            LoadTableList();
+            LoadTableList(selectedRestaurant);
         }
 
         private void hbtnAddGroup_Click(object sender, EventArgs e)
         {
-            GroupToTableUI addGroup = new GroupToTableUI((Table)hcboTableList.SelectedItem, aWaitList, oServerList);
-            addGroup.ShowDialog();
 
-            LoadTableList();
-
-            hcboWaitList.Items.Clear();
-            hcboServerList.Items.Clear();
-
-            foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+            if (selectedRestaurant.serverList.Count > 0)
             {
-                hcboWaitList.Items.Add(wlg);
-            }
+                GroupToTableUI addGroup = new GroupToTableUI((Table)hcboTableList.SelectedItem, aWaitList, selectedRestaurant.serverList);
 
-            //foreach (Server s in oServerList.OurServerList)
-            //{
-            //    hcboServerList.Items.Add(s);
-            //}
+                addGroup.ShowDialog();
+
+                LoadTableList(selectedRestaurant);
+
+                hcboWaitList.Items.Clear();
+
+                foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+                {
+                    hcboWaitList.Items.Add(wlg);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You have to servers to serve this table, Enter a server into the server list.", "NO Servers!");
+            }
+            
         }
 
         private void hbtnRemoveFromWaitlist_Click(object sender, EventArgs e)

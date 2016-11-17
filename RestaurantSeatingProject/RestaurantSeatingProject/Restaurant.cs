@@ -15,14 +15,17 @@ namespace RestaurantSeatingProject
         public string Manager { get; set; }
         public string Host { get; set; }
         public List<Table> TableList { get; set; }
+        public List<Server> serverList { get; set; }
 
-        public Restaurant(string aName, string aAddress, string aManager, string aHost, List<Table> aTableList)
+        public Restaurant(string aName, string aAddress, string aManager, string aHost)
         {
             Name = aName;
             Address = aAddress;
             Manager = aManager;
             Host = aHost;
-            TableList = aTableList;
+            TableDA tables = new TableDA();
+            TableList = new List<Table>();
+            serverList = new List<Server>();
         }
 
         public Restaurant()
@@ -30,6 +33,15 @@ namespace RestaurantSeatingProject
 
         }
 
+        public void addServer(Server s)
+        {
+            serverList.Add(s);
+        }
+
+        public void removeServer(Server s)
+        {
+            serverList.Remove(s);
+        }
         
         public override string ToString()
         {

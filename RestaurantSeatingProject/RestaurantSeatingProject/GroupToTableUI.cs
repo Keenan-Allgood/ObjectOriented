@@ -15,8 +15,7 @@ namespace RestaurantSeatingProject
         WaitList wl;
         List<Server> serverList;
         Table theTable;
-        Validator myValidation = new Validator();
-
+ 
         public GroupToTableUI(Table selectedTable, WaitList wlist, List<Server> serveList)
         {
             InitializeComponent();
@@ -36,25 +35,33 @@ namespace RestaurantSeatingProject
 
         private void btnAddFromTxt_Click(object sender, EventArgs e)
         {
-            if(myValidation.Test((Server)cboServerList.SelectedItem)&&myValidation.IsPresent(txtName)&&myValidation.IsPresent(txtSize)&&myValidation.IsNumeric(txtSize))
+            try
             {
-                theTable.GroupName = txtName.Text;
-                theTable.GroupSize = Convert.ToInt16(txtSize.Text);
-                theTable.AServer = (Server)cboServerList.SelectedItem;
+                
+                if (Convert.ToInt16(txtSize.Text) <= theTable.Size && Convert.ToInt16(txtSize.Text) >= 1)
+                {
+                    theTable.GroupSize = Convert.ToInt16(txtSize.Text);
+                    theTable.GroupName = txtName.Text;
+                    theTable.AServer = (Server)cboServerList.SelectedItem;
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Group Size too big, must be no more than " + theTable.Size + " people", "Group Size Issue");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Must be a valid number", "Invalid input Issue");
             }
         }
 
         private void btnAddFromWL_Click(object sender, EventArgs e)
         {
-           
             WaitListGroup wlg = (WaitListGroup)cboWaitList.SelectedItem;
-            if(theTable.GroupName==null)
-                {
-                MessageBox.Show("Please select waitgroup from waitlist.");
-                }
-            else
+
+            if (wlg.Size <= theTable.Size)
             {
                 theTable.GroupName = wlg.Name;
                 theTable.GroupSize = wlg.Size;
@@ -64,7 +71,15 @@ namespace RestaurantSeatingProject
 
                 this.Close();
             }
-            
+            else
+            {
+                MessageBox.Show("The waitgroup size is too big for this table", "Group Size Issue");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
