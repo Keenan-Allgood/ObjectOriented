@@ -40,6 +40,7 @@ namespace RestaurantSeatingProject
             txtHost.Text = oCurrentRestaurant.Host;
             txtName.Text = oCurrentRestaurant.Name;
             oTableList = oCurrentRestaurant.TableList;
+            
             foreach (Table i in oCurrentRestaurant.TableList)
             {
                 cboTableList.Items.Add(i);
@@ -48,7 +49,7 @@ namespace RestaurantSeatingProject
             {
                 cboTableList.SelectedIndex = 0;
             }
-
+            nIndex = cboTableList.Items.Count + 1;
             this.ShowDialog();
             string tag = Convert.ToString(this.Tag);
             if(tag.ToUpper() != "CLOSE")
