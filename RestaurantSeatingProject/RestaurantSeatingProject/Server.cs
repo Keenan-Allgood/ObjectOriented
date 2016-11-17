@@ -26,6 +26,16 @@ namespace RestaurantSeatingProject
             set { serverName = value; }
         }
 
+        public void AddServer()
+        {
+            serverList.Add(TheServer);
+        }
+
+        public List<String> ShowList()
+        {
+            return serverList;
+        }
+
         public override string ToString()
         {
             return TheServer;
