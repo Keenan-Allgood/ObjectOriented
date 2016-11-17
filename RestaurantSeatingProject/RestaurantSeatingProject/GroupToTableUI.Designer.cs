@@ -37,6 +37,7 @@
             this.btnAddFromWL = new System.Windows.Forms.Button();
             this.lblServer = new System.Windows.Forms.Label();
             this.cboServerList = new System.Windows.Forms.ComboBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboWaitList
@@ -116,11 +117,22 @@
             this.cboServerList.Size = new System.Drawing.Size(192, 21);
             this.cboServerList.TabIndex = 8;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(125, 257);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 23);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // GroupToTableUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 246);
+            this.ClientSize = new System.Drawing.Size(324, 292);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cboServerList);
             this.Controls.Add(this.lblServer);
             this.Controls.Add(this.btnAddFromWL);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Button btnAddFromWL;
         private System.Windows.Forms.Label lblServer;
         private System.Windows.Forms.ComboBox cboServerList;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

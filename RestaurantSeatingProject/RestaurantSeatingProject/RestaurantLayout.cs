@@ -42,7 +42,7 @@ namespace RestaurantSeatingProject
             oTableList = oCurrentRestaurant.TableList;
             foreach (Table i in oCurrentRestaurant.TableList)
             {
-                cboTableList.Items.Add(i.ToString());
+                cboTableList.Items.Add(i);
             }
             if(cboTableList.Items.Count > 0)
             {
@@ -75,7 +75,7 @@ namespace RestaurantSeatingProject
             oTableList = oCurrentRestaurant.TableList;
             foreach (Table i in oCurrentRestaurant.TableList)
             {
-                cboTableList.Items.Add(i.ToString());
+                cboTableList.Items.Add(i);
             }
             this.ShowDialog();
             string tag = Convert.ToString(this.Tag);
@@ -92,11 +92,19 @@ namespace RestaurantSeatingProject
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {           
-            Table oNewTable = new Table(Convert.ToString(nIndex), Convert.ToInt16(txtSize.Text));
-            oTableList.Add(oNewTable);
-            ReloadTableList();
-            nIndex++;
+        {
+
+            if (Convert.ToInt16(txtSize.Text) <= 14 && Convert.ToInt16(txtSize.Text) > 0)
+            {
+                Table oNewTable = new Table(Convert.ToString(nIndex), Convert.ToInt16(txtSize.Text));
+                oTableList.Add(oNewTable);
+                ReloadTableList();
+                nIndex++;
+            }
+            else
+            {
+                MessageBox.Show("Table size must be 1-14", "Table Size Issue");
+            }
         }
 
         public void ReloadTableList()
@@ -104,7 +112,7 @@ namespace RestaurantSeatingProject
             cboTableList.Items.Clear();
             foreach (Table i in oTableList)
             {
-                cboTableList.Items.Add(i.ToString());
+                cboTableList.Items.Add(i);
             }
             cboTableList.SelectedIndex = 0;
         }
@@ -120,7 +128,8 @@ namespace RestaurantSeatingProject
             string tag = Convert.ToString(this.Tag);
             if(tag.ToUpper() != "DELETE")
             {
-                oRestaurant = new Restaurant(txtName.Text, txtAddress.Text, txtManager.Text, txtHost.Text, oTableList);                
+                oRestaurant = new Restaurant(txtName.Text, txtAddress.Text, txtManager.Text, txtHost.Text);
+                oRestaurant.TableList = oTableList;               
             }
             else
             {

@@ -35,23 +35,50 @@ namespace RestaurantSeatingProject
 
         private void btnAddFromTxt_Click(object sender, EventArgs e)
         {
-            theTable.GroupName = txtName.Text;
-            theTable.GroupSize = Convert.ToInt16(txtSize.Text);
-            theTable.AServer = (Server)cboServerList.SelectedItem;
+            try
+            {
+                
+                if (Convert.ToInt16(txtSize.Text) <= theTable.Size && Convert.ToInt16(txtSize.Text) >= 1)
+                {
+                    theTable.GroupSize = Convert.ToInt16(txtSize.Text);
+                    theTable.GroupName = txtName.Text;
+                    theTable.AServer = (Server)cboServerList.SelectedItem;
 
-            this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Group Size too big, must be no more than " + theTable.Size + " people", "Group Size Issue");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Must be a valid number", "Invalid input Issue");
+            }
         }
 
         private void btnAddFromWL_Click(object sender, EventArgs e)
         {
             WaitListGroup wlg = (WaitListGroup)cboWaitList.SelectedItem;
 
-            theTable.GroupName = wlg.Name;
-            theTable.GroupSize = wlg.Size;
-            theTable.AServer = (Server)cboServerList.SelectedItem;
+            if (wlg.Size <= theTable.Size)
+            {
+                theTable.GroupName = wlg.Name;
+                theTable.GroupSize = wlg.Size;
+                theTable.AServer = (Server)cboServerList.SelectedItem;
 
-            wl.RemoveGroup(wlg);
+                wl.RemoveGroup(wlg);
 
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("The waitgroup size is too big for this table", "Group Size Issue");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
