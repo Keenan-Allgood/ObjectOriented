@@ -118,15 +118,18 @@ namespace RestaurantSeatingProject
         }
 
         private void LoadRestaurantList()
-        {     
-            cboRestaurantList.Items.Clear();
+        {
+                cboRestaurantList.Items.Clear();
 
-            foreach (Restaurant r in oRestaurantList)
-            {
-                cboRestaurantList.Items.Add(r);
-            }
-            cboRestaurantList.SelectedIndex = 0;
-
+                foreach (Restaurant r in oRestaurantList)
+                {
+                    cboRestaurantList.Items.Add(r);
+                }
+                if(oRestaurantList.Count>0)
+                {
+                cboRestaurantList.SelectedIndex = 0;
+                }
+                
         }
 
         private void btnCreateRestaurant_Click(object sender, EventArgs e)

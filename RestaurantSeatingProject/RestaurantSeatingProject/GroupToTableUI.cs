@@ -60,20 +60,26 @@ namespace RestaurantSeatingProject
         private void btnAddFromWL_Click(object sender, EventArgs e)
         {
             WaitListGroup wlg = (WaitListGroup)cboWaitList.SelectedItem;
-
-            if (wlg.Size <= theTable.Size)
+            try
             {
-                theTable.GroupName = wlg.Name;
-                theTable.GroupSize = wlg.Size;
-                theTable.AServer = (Server)cboServerList.SelectedItem;
+                if (wlg.Size <= theTable.Size)
+                {
+                    theTable.GroupName = wlg.Name;
+                    theTable.GroupSize = wlg.Size;
+                    theTable.AServer = (Server)cboServerList.SelectedItem;
 
-                wl.RemoveGroup(wlg);
+                    wl.RemoveGroup(wlg);
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("The waitgroup size is too big for this table", "Group Size Issue");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("The waitgroup size is too big for this table", "Group Size Issue");
+                MessageBox.Show("Please add a waitgroup.");
             }
         }
 

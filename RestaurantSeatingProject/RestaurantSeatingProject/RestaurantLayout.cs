@@ -61,29 +61,36 @@ namespace RestaurantSeatingProject
 
         public bool DeleteRestaurant(Restaurant oCurrentRestaurant)
         {
-            this.Tag = "delete";
-            txtManager.Text = oCurrentRestaurant.Manager;
-            txtAddress.Text = oCurrentRestaurant.Address;
-            txtHost.Text = oCurrentRestaurant.Host;
-            txtName.Text = oCurrentRestaurant.Name;
-            txtAddress.Enabled = false;
-            txtHost.Enabled = false;
-            txtManager.Enabled = false;
-            txtName.Enabled = false;
-            btnAdd.Enabled = false;
-            btnDelete.Enabled = false;
-            txtSize.Enabled = false;
-            oTableList = oCurrentRestaurant.TableList;
-            foreach (Table i in oCurrentRestaurant.TableList)
+            if(oCurrentRestaurant!=null)
             {
-                cboTableList.Items.Add(i);
-            }
-            this.ShowDialog();
-            string tag = Convert.ToString(this.Tag);
+                this.Tag = "delete";
+                txtManager.Text = oCurrentRestaurant.Manager;
+                txtAddress.Text = oCurrentRestaurant.Address;
+                txtHost.Text = oCurrentRestaurant.Host;
+                txtName.Text = oCurrentRestaurant.Name;
+                txtAddress.Enabled = false;
+                txtHost.Enabled = false;
+                txtManager.Enabled = false;
+                txtName.Enabled = false;
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+                txtSize.Enabled = false;
+                oTableList = oCurrentRestaurant.TableList;
+                foreach (Table i in oCurrentRestaurant.TableList)
+                {
+                    cboTableList.Items.Add(i);
+                }
+                this.ShowDialog();
+                string tag = Convert.ToString(this.Tag);
 
-            if(tag.ToUpper() == "YES")
-            {
-                return true;
+                if (tag.ToUpper() == "YES")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -110,12 +117,13 @@ namespace RestaurantSeatingProject
 
         public void ReloadTableList()
         {
-            cboTableList.Items.Clear();
-            foreach (Table i in oTableList)
-            {
-                cboTableList.Items.Add(i);
-            }
+                cboTableList.Items.Clear();
+                foreach (Table i in oTableList)
+                {
+                    cboTableList.Items.Add(i);
+                }
             cboTableList.SelectedIndex = 0;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -127,7 +135,7 @@ namespace RestaurantSeatingProject
         private void btnSave_Click(object sender, EventArgs e)
         {
             string tag = Convert.ToString(this.Tag);
-            if(tag.ToUpper() != "DELETE")
+            if(tag.ToUpper() != "DELETE" )
             {
                 oRestaurant = new Restaurant(txtName.Text, txtAddress.Text, txtManager.Text, txtHost.Text);
                 oRestaurant.TableList = oTableList;               
@@ -137,18 +145,23 @@ namespace RestaurantSeatingProject
                 this.Tag = "yes";
             }
             this.Close();
+
+            //&& oRestaurant.TableList.Count>0
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int nNewIndex = 1;
-            oTableList.RemoveAt(cboTableList.SelectedIndex);
-            foreach(Table i in oTableList)
+            if(cboTableList.Items.Count>0)
             {
-                i.TableID = Convert.ToString(nNewIndex);
-                nNewIndex++;
+                int nNewIndex = 1;
+                oTableList.RemoveAt(cboTableList.SelectedIndex);
+                foreach (Table i in oTableList)
+                {
+                    i.TableID = Convert.ToString(nNewIndex);
+                    nNewIndex++;
+                }
+                ReloadTableList();
             }
-            ReloadTableList();
         }
     }
 }
