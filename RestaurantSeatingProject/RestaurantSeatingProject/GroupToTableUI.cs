@@ -15,7 +15,8 @@ namespace RestaurantSeatingProject
         WaitList wl;
         List<Server> serverList;
         Table theTable;
- 
+        Validator myValidation = new Validator();
+
         public GroupToTableUI(Table selectedTable, WaitList wlist, List<Server> serveList)
         {
             InitializeComponent();
@@ -35,24 +36,35 @@ namespace RestaurantSeatingProject
 
         private void btnAddFromTxt_Click(object sender, EventArgs e)
         {
-            theTable.GroupName = txtName.Text;
-            theTable.GroupSize = Convert.ToInt16(txtSize.Text);
-            theTable.AServer = (Server)cboServerList.SelectedItem;
+            if(myValidation.Test((Server)cboServerList.SelectedItem)&&myValidation.IsPresent(txtName)&&myValidation.IsPresent(txtSize)&&myValidation.IsNumeric(txtSize))
+            {
+                theTable.GroupName = txtName.Text;
+                theTable.GroupSize = Convert.ToInt16(txtSize.Text);
+                theTable.AServer = (Server)cboServerList.SelectedItem;
 
-            this.Close();
+                this.Close();
+            }
         }
 
         private void btnAddFromWL_Click(object sender, EventArgs e)
         {
+           
             WaitListGroup wlg = (WaitListGroup)cboWaitList.SelectedItem;
+            if(theTable.GroupName==null)
+                {
+                MessageBox.Show("Please select waitgroup from waitlist.");
+                }
+            else
+            {
+                theTable.GroupName = wlg.Name;
+                theTable.GroupSize = wlg.Size;
+                theTable.AServer = (Server)cboServerList.SelectedItem;
 
-            theTable.GroupName = wlg.Name;
-            theTable.GroupSize = wlg.Size;
-            theTable.AServer = (Server)cboServerList.SelectedItem;
+                wl.RemoveGroup(wlg);
 
-            wl.RemoveGroup(wlg);
-
-            this.Close();
+                this.Close();
+            }
+            
         }
     }
 }

@@ -94,6 +94,7 @@
     <Compile Include="Server.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TableDA.cs" />
+    <Compile Include="Validator.cs" />
     <Compile Include="WaitList.cs" />
     <Compile Include="WaitListGroup.cs" />
     <EmbeddedResource Include="AddGroup.resx">

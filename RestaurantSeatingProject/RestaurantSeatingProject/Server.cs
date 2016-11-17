@@ -39,6 +39,7 @@ namespace RestaurantSeatingProject
             return serverList;
         }
 
+
         public override string ToString()
         {
             return TheServer;

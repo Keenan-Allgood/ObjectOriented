@@ -62,10 +62,11 @@
             // 
             this.tabControl.Controls.Add(this.tabHost);
             this.tabControl.Controls.Add(this.tabManager);
-            this.tabControl.Location = new System.Drawing.Point(12, 48);
+            this.tabControl.Location = new System.Drawing.Point(22, 89);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(964, 569);
+            this.tabControl.Size = new System.Drawing.Size(1767, 1050);
             this.tabControl.TabIndex = 0;
             // 
             // tabHost
@@ -88,28 +89,29 @@
             this.tabHost.Controls.Add(this.lblServerName);
             this.tabHost.Controls.Add(this.hcboServerList);
             this.tabHost.Controls.Add(this.lblServerList);
-            this.tabHost.Location = new System.Drawing.Point(4, 22);
+            this.tabHost.Location = new System.Drawing.Point(4, 33);
+            this.tabHost.Margin = new System.Windows.Forms.Padding(6);
             this.tabHost.Name = "tabHost";
-            this.tabHost.Size = new System.Drawing.Size(956, 543);
+            this.tabHost.Size = new System.Drawing.Size(1759, 1013);
             this.tabHost.TabIndex = 0;
             this.tabHost.Text = "HOST";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 70);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(75, 129);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(97, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Table List";
             // 
             // hbtnRemoveGroup
             // 
-            this.hbtnRemoveGroup.Location = new System.Drawing.Point(575, 109);
-            this.hbtnRemoveGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.hbtnRemoveGroup.Location = new System.Drawing.Point(1054, 201);
+            this.hbtnRemoveGroup.Margin = new System.Windows.Forms.Padding(4);
             this.hbtnRemoveGroup.Name = "hbtnRemoveGroup";
-            this.hbtnRemoveGroup.Size = new System.Drawing.Size(113, 28);
+            this.hbtnRemoveGroup.Size = new System.Drawing.Size(207, 52);
             this.hbtnRemoveGroup.TabIndex = 27;
             this.hbtnRemoveGroup.Text = "Remove Group";
             this.hbtnRemoveGroup.UseVisualStyleBackColor = true;
@@ -117,10 +119,10 @@
             // 
             // hbtnAddGroup
             // 
-            this.hbtnAddGroup.Location = new System.Drawing.Point(446, 109);
-            this.hbtnAddGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.hbtnAddGroup.Location = new System.Drawing.Point(818, 201);
+            this.hbtnAddGroup.Margin = new System.Windows.Forms.Padding(4);
             this.hbtnAddGroup.Name = "hbtnAddGroup";
-            this.hbtnAddGroup.Size = new System.Drawing.Size(101, 28);
+            this.hbtnAddGroup.Size = new System.Drawing.Size(185, 52);
             this.hbtnAddGroup.TabIndex = 25;
             this.hbtnAddGroup.Text = "Add Group";
             this.hbtnAddGroup.UseVisualStyleBackColor = true;
@@ -131,18 +133,18 @@
             this.hcboTableList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hcboTableList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hcboTableList.FormattingEnabled = true;
-            this.hcboTableList.Location = new System.Drawing.Point(44, 109);
-            this.hcboTableList.Margin = new System.Windows.Forms.Padding(2);
+            this.hcboTableList.Location = new System.Drawing.Point(81, 201);
+            this.hcboTableList.Margin = new System.Windows.Forms.Padding(4);
             this.hcboTableList.Name = "hcboTableList";
-            this.hcboTableList.Size = new System.Drawing.Size(382, 24);
+            this.hcboTableList.Size = new System.Drawing.Size(697, 36);
             this.hcboTableList.TabIndex = 24;
             // 
             // btnAddWaitGroup
             // 
-            this.btnAddWaitGroup.Location = new System.Drawing.Point(816, 519);
-            this.btnAddWaitGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddWaitGroup.Location = new System.Drawing.Point(1401, 958);
+            this.btnAddWaitGroup.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddWaitGroup.Name = "btnAddWaitGroup";
-            this.btnAddWaitGroup.Size = new System.Drawing.Size(67, 22);
+            this.btnAddWaitGroup.Size = new System.Drawing.Size(123, 41);
             this.btnAddWaitGroup.TabIndex = 15;
             this.btnAddWaitGroup.Text = "Add Group";
             this.btnAddWaitGroup.UseVisualStyleBackColor = true;
@@ -150,46 +152,48 @@
             // 
             // htxtGroupSize
             // 
-            this.htxtGroupSize.Location = new System.Drawing.Point(874, 495);
-            this.htxtGroupSize.Margin = new System.Windows.Forms.Padding(2);
+            this.htxtGroupSize.Location = new System.Drawing.Point(1507, 914);
+            this.htxtGroupSize.Margin = new System.Windows.Forms.Padding(4);
             this.htxtGroupSize.Name = "htxtGroupSize";
-            this.htxtGroupSize.Size = new System.Drawing.Size(68, 20);
+            this.htxtGroupSize.Size = new System.Drawing.Size(121, 29);
             this.htxtGroupSize.TabIndex = 14;
+            this.htxtGroupSize.Tag = "Size Text Box";
             // 
             // htxtGroupName
             // 
-            this.htxtGroupName.Location = new System.Drawing.Point(775, 495);
-            this.htxtGroupName.Margin = new System.Windows.Forms.Padding(2);
+            this.htxtGroupName.Location = new System.Drawing.Point(1326, 914);
+            this.htxtGroupName.Margin = new System.Windows.Forms.Padding(4);
             this.htxtGroupName.Name = "htxtGroupName";
-            this.htxtGroupName.Size = new System.Drawing.Size(68, 20);
+            this.htxtGroupName.Size = new System.Drawing.Size(121, 29);
             this.htxtGroupName.TabIndex = 13;
+            this.htxtGroupName.Tag = "Name Text Box";
             // 
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Location = new System.Drawing.Point(876, 466);
-            this.lblSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSize.Location = new System.Drawing.Point(1511, 860);
+            this.lblSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(27, 13);
+            this.lblSize.Size = new System.Drawing.Size(51, 25);
             this.lblSize.TabIndex = 12;
             this.lblSize.Text = "Size";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(772, 466);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(1320, 860);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(64, 25);
             this.lblName.TabIndex = 11;
             this.lblName.Text = "Name";
             // 
             // hbtnRemoveFromWaitlist
             // 
-            this.hbtnRemoveFromWaitlist.Location = new System.Drawing.Point(809, 388);
-            this.hbtnRemoveFromWaitlist.Margin = new System.Windows.Forms.Padding(2);
+            this.hbtnRemoveFromWaitlist.Location = new System.Drawing.Point(1402, 732);
+            this.hbtnRemoveFromWaitlist.Margin = new System.Windows.Forms.Padding(4);
             this.hbtnRemoveFromWaitlist.Name = "hbtnRemoveFromWaitlist";
-            this.hbtnRemoveFromWaitlist.Size = new System.Drawing.Size(63, 25);
+            this.hbtnRemoveFromWaitlist.Size = new System.Drawing.Size(116, 46);
             this.hbtnRemoveFromWaitlist.TabIndex = 10;
             this.hbtnRemoveFromWaitlist.Text = "Remove";
             this.hbtnRemoveFromWaitlist.UseVisualStyleBackColor = true;
@@ -200,28 +204,28 @@
             this.hcboWaitList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hcboWaitList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.hcboWaitList.FormattingEnabled = true;
-            this.hcboWaitList.Location = new System.Drawing.Point(775, 360);
-            this.hcboWaitList.Margin = new System.Windows.Forms.Padding(2);
+            this.hcboWaitList.Location = new System.Drawing.Point(1129, 665);
+            this.hcboWaitList.Margin = new System.Windows.Forms.Padding(4);
             this.hcboWaitList.Name = "hcboWaitList";
-            this.hcboWaitList.Size = new System.Drawing.Size(128, 24);
+            this.hcboWaitList.Size = new System.Drawing.Size(626, 36);
             this.hcboWaitList.TabIndex = 9;
             // 
             // lblWaitList
             // 
             this.lblWaitList.AutoSize = true;
-            this.lblWaitList.Location = new System.Drawing.Point(809, 321);
-            this.lblWaitList.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWaitList.Location = new System.Drawing.Point(1416, 609);
+            this.lblWaitList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWaitList.Name = "lblWaitList";
-            this.lblWaitList.Size = new System.Drawing.Size(48, 13);
+            this.lblWaitList.Size = new System.Drawing.Size(87, 25);
             this.lblWaitList.TabIndex = 8;
             this.lblWaitList.Text = "Wait List";
             // 
             // hbtnAddServer
             // 
-            this.hbtnAddServer.Location = new System.Drawing.Point(809, 237);
-            this.hbtnAddServer.Margin = new System.Windows.Forms.Padding(2);
+            this.hbtnAddServer.Location = new System.Drawing.Point(1401, 440);
+            this.hbtnAddServer.Margin = new System.Windows.Forms.Padding(4);
             this.hbtnAddServer.Name = "hbtnAddServer";
-            this.hbtnAddServer.Size = new System.Drawing.Size(74, 19);
+            this.hbtnAddServer.Size = new System.Drawing.Size(136, 35);
             this.hbtnAddServer.TabIndex = 7;
             this.hbtnAddServer.Text = "Add Server";
             this.hbtnAddServer.UseVisualStyleBackColor = true;
@@ -229,19 +233,20 @@
             // 
             // htxtServerName
             // 
-            this.htxtServerName.Location = new System.Drawing.Point(809, 208);
-            this.htxtServerName.Margin = new System.Windows.Forms.Padding(2);
+            this.htxtServerName.Location = new System.Drawing.Point(1401, 386);
+            this.htxtServerName.Margin = new System.Windows.Forms.Padding(4);
             this.htxtServerName.Name = "htxtServerName";
-            this.htxtServerName.Size = new System.Drawing.Size(68, 20);
+            this.htxtServerName.Size = new System.Drawing.Size(121, 29);
             this.htxtServerName.TabIndex = 6;
+            this.htxtServerName.Tag = "Server Text Box";
             // 
             // lblServerName
             // 
             this.lblServerName.AutoSize = true;
-            this.lblServerName.Location = new System.Drawing.Point(806, 185);
-            this.lblServerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblServerName.Location = new System.Drawing.Point(1396, 344);
+            this.lblServerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(69, 13);
+            this.lblServerName.Size = new System.Drawing.Size(127, 25);
             this.lblServerName.TabIndex = 5;
             this.lblServerName.Text = "Server Name";
             // 
@@ -250,19 +255,19 @@
             this.hcboServerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hcboServerList.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.hcboServerList.FormattingEnabled = true;
-            this.hcboServerList.Location = new System.Drawing.Point(775, 62);
-            this.hcboServerList.Margin = new System.Windows.Forms.Padding(2);
+            this.hcboServerList.Location = new System.Drawing.Point(1339, 116);
+            this.hcboServerList.Margin = new System.Windows.Forms.Padding(4);
             this.hcboServerList.Name = "hcboServerList";
-            this.hcboServerList.Size = new System.Drawing.Size(128, 24);
+            this.hcboServerList.Size = new System.Drawing.Size(231, 36);
             this.hcboServerList.TabIndex = 4;
             // 
             // lblServerList
             // 
             this.lblServerList.AutoSize = true;
-            this.lblServerList.Location = new System.Drawing.Point(806, 35);
-            this.lblServerList.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblServerList.Location = new System.Drawing.Point(1396, 67);
+            this.lblServerList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServerList.Name = "lblServerList";
-            this.lblServerList.Size = new System.Drawing.Size(57, 13);
+            this.lblServerList.Size = new System.Drawing.Size(105, 25);
             this.lblServerList.TabIndex = 3;
             this.lblServerList.Text = "Server List";
             // 
@@ -271,18 +276,20 @@
             this.tabManager.Controls.Add(this.btnEditRestaurant);
             this.tabManager.Controls.Add(this.btnDeleteRestaurant);
             this.tabManager.Controls.Add(this.btnCreateRestaurant);
-            this.tabManager.Location = new System.Drawing.Point(4, 22);
+            this.tabManager.Location = new System.Drawing.Point(4, 33);
+            this.tabManager.Margin = new System.Windows.Forms.Padding(6);
             this.tabManager.Name = "tabManager";
-            this.tabManager.Size = new System.Drawing.Size(956, 543);
+            this.tabManager.Size = new System.Drawing.Size(1759, 1013);
             this.tabManager.TabIndex = 1;
             this.tabManager.Text = "MANAGER";
             this.tabManager.UseVisualStyleBackColor = true;
             // 
             // btnEditRestaurant
             // 
-            this.btnEditRestaurant.Location = new System.Drawing.Point(242, 79);
+            this.btnEditRestaurant.Location = new System.Drawing.Point(444, 146);
+            this.btnEditRestaurant.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditRestaurant.Name = "btnEditRestaurant";
-            this.btnEditRestaurant.Size = new System.Drawing.Size(155, 23);
+            this.btnEditRestaurant.Size = new System.Drawing.Size(284, 42);
             this.btnEditRestaurant.TabIndex = 2;
             this.btnEditRestaurant.Text = "Edit Restaurant";
             this.btnEditRestaurant.UseVisualStyleBackColor = true;
@@ -290,9 +297,10 @@
             // 
             // btnDeleteRestaurant
             // 
-            this.btnDeleteRestaurant.Location = new System.Drawing.Point(436, 79);
+            this.btnDeleteRestaurant.Location = new System.Drawing.Point(799, 146);
+            this.btnDeleteRestaurant.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteRestaurant.Name = "btnDeleteRestaurant";
-            this.btnDeleteRestaurant.Size = new System.Drawing.Size(155, 23);
+            this.btnDeleteRestaurant.Size = new System.Drawing.Size(284, 42);
             this.btnDeleteRestaurant.TabIndex = 1;
             this.btnDeleteRestaurant.Text = "Delete Restaurant";
             this.btnDeleteRestaurant.UseVisualStyleBackColor = true;
@@ -300,9 +308,10 @@
             // 
             // btnCreateRestaurant
             // 
-            this.btnCreateRestaurant.Location = new System.Drawing.Point(52, 79);
+            this.btnCreateRestaurant.Location = new System.Drawing.Point(95, 146);
+            this.btnCreateRestaurant.Margin = new System.Windows.Forms.Padding(6);
             this.btnCreateRestaurant.Name = "btnCreateRestaurant";
-            this.btnCreateRestaurant.Size = new System.Drawing.Size(155, 23);
+            this.btnCreateRestaurant.Size = new System.Drawing.Size(284, 42);
             this.btnCreateRestaurant.TabIndex = 0;
             this.btnCreateRestaurant.Text = "Create Resaurant";
             this.btnCreateRestaurant.UseVisualStyleBackColor = true;
@@ -312,30 +321,33 @@
             // 
             this.cboRestaurantList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRestaurantList.FormattingEnabled = true;
-            this.cboRestaurantList.Location = new System.Drawing.Point(152, 12);
+            this.cboRestaurantList.Location = new System.Drawing.Point(279, 22);
+            this.cboRestaurantList.Margin = new System.Windows.Forms.Padding(6);
             this.cboRestaurantList.Name = "cboRestaurantList";
-            this.cboRestaurantList.Size = new System.Drawing.Size(278, 21);
+            this.cboRestaurantList.Size = new System.Drawing.Size(506, 32);
             this.cboRestaurantList.TabIndex = 1;
             this.cboRestaurantList.SelectedIndexChanged += new System.EventHandler(this.cboRestaurantList_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 15);
+            this.label2.Location = new System.Drawing.Point(160, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Restaurant";
             // 
             // GUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1029, 630);
+            this.ClientSize = new System.Drawing.Size(1887, 1163);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboRestaurantList);
             this.Controls.Add(this.tabControl);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "GUI";
             this.Text = "HostUI";
             this.Load += new System.EventHandler(this.GUI_Load);

@@ -17,6 +17,7 @@ namespace RestaurantSeatingProject
         List<Table> oTableList = new List<Table>();
         List<Server> oServerList = new List<Server>();
         WaitList aWaitList = new WaitList();
+        Validator myValidation = new Validator();
         int nRestaurantIndex = 0;
 
         public GUI()
@@ -34,12 +35,15 @@ namespace RestaurantSeatingProject
 
         private void btnAddServer_Click(object sender, EventArgs e)
         {
-            Server ourServers = new Server(htxtServerName.Text);
-            ourServers.AddServer();
-            hcboServerList.Items.Clear();
-            foreach (var i in ourServers.ShowList())
+            if (myValidation.IsPresent(htxtServerName))
             {
-                hcboServerList.Items.Add(i);
+                Server ourServers = new Server(htxtServerName.Text);
+                ourServers.AddServer();
+                hcboServerList.Items.Clear();
+                foreach (var i in ourServers.ShowList())
+                {
+                    hcboServerList.Items.Add(i);
+                }
             }
         }
 
@@ -54,17 +58,20 @@ namespace RestaurantSeatingProject
 
         private void btnAddWaitGroup_Click(object sender, EventArgs e)
         {
-            aWaitList.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
-    
-            hcboWaitList.Items.Clear();
-
-            foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+            if(myValidation.IsPresent(htxtGroupName)&&myValidation.IsPresent(htxtGroupSize)&&myValidation.IsNumeric(htxtGroupSize))
             {
-                hcboWaitList.Items.Add(wlg);
-            }
+                aWaitList.AddGroup(htxtGroupName.Text, Convert.ToInt32(htxtGroupSize.Text));
 
-            htxtGroupName.Text = "";
-            htxtGroupSize.Text = "";
+                hcboWaitList.Items.Clear();
+
+                foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
+                {
+                    hcboWaitList.Items.Add(wlg);
+                }
+
+                htxtGroupName.Text = "";
+                htxtGroupSize.Text = "";
+            }
         }
 
         private void btnAddTableInfo_Click(object sender, EventArgs e)
@@ -145,7 +152,7 @@ namespace RestaurantSeatingProject
             Restaurant oRestaurant = new Restaurant("Dinos", "1234 Van Dorn", "Keenan Allgood", "Rick Astley", theTables.GetAllTables());
             Restaurant.AddRestaurant(oRestaurant);
             oRestaurantList = Restaurant.GetRestaurants();
-            Server oDefaultServer = new Server("Keenan Allgood");           
+            Server oDefaultServer = new Server("Keenan Allgood");
             oServerList.Add(oDefaultServer);
             hcboServerList.Items.Add(oDefaultServer);
  
@@ -213,11 +220,17 @@ namespace RestaurantSeatingProject
             LoadTableList();
 
             hcboWaitList.Items.Clear();
+            hcboServerList.Items.Clear();
 
             foreach (WaitListGroup wlg in aWaitList.WaitGroupList)
             {
                 hcboWaitList.Items.Add(wlg);
             }
+
+            //foreach (Server s in oServerList.OurServerList)
+            //{
+            //    hcboServerList.Items.Add(s);
+            //}
         }
 
         private void hbtnRemoveFromWaitlist_Click(object sender, EventArgs e)
