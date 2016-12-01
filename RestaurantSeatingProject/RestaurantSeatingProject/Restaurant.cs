@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace RestaurantSeatingProject
 {
+    [TestFixture]
     public class Restaurant
     {
         public static List<Restaurant> oRestaurantList = new List<Restaurant>();
@@ -16,6 +18,7 @@ namespace RestaurantSeatingProject
         public string Host { get; set; }
         public List<Table> TableList { get; set; }
         public List<Server> serverList { get; set; }
+
 
         public Restaurant(string aName, string aAddress, string aManager, string aHost)
         {
@@ -42,7 +45,7 @@ namespace RestaurantSeatingProject
         {
             serverList.Remove(s);
         }
-        
+
         public override string ToString()
         {
             return "Name: " + Name + " || Manager: " + Manager;
@@ -62,6 +65,5 @@ namespace RestaurantSeatingProject
         {
             return oRestaurantList;
         }
-
     }
 }
