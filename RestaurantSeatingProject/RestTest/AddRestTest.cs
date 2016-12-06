@@ -48,6 +48,22 @@ using RestaurantSeatingProject;
         Assert.AreEqual(1, Restaurant.oRestaurantList.Count);
     }
 
+    //Stays in the list?  Fix
+    [Test]
+    public void DeleteRestObject()
+    {
+        addRest = new Restaurant();
+        addRest.Address = "305 My Drive Lincoln, NE";
+        addRest.Host = "Bryan Goff";
+        addRest.Manager = "Bryan Goff";
+        addRest.Name = "Test";
+        addRest.serverList = new List<Server>();
+        addRest.TableList = new List<Table>();
+        Restaurant.oRestaurantList.Add(addRest);
+        Restaurant.DeleteRestaurant(0);
+        Assert.AreEqual(0, Restaurant.oRestaurantList.Count);
+    }
+
     //Can I add a server to the rest object?
     [Test]
     public void  AddServer()
