@@ -36,17 +36,16 @@ using RestaurantSeatingProject;
     [Test]
     public void AddRestObject()
     {
-        
-        //addRest = new Restaurant();
-        //addRest.Address = "305 My Drive Lincoln, NE";
-        //addRest.Host = "Bryan Goff";
-        //addRest.Manager = "Bryan Goff";
-        //addRest.Name = "Test";
-        //addRest.serverList = new List<Server>();
-        //addRest.TableList = new List<Table>();
-        
-        //FloorPlan myFloor = new FloorPlan(1,addRest.TableList);
-        //Assert.AreEqual(1, );
+
+        addRest = new Restaurant();
+        addRest.Address = "305 My Drive Lincoln, NE";
+        addRest.Host = "Bryan Goff";
+        addRest.Manager = "Bryan Goff";
+        addRest.Name = "Test";
+        addRest.serverList = new List<Server>();
+        addRest.TableList = new List<Table>();
+        Restaurant.oRestaurantList.Add(addRest);
+        Assert.AreEqual(1, Restaurant.oRestaurantList.Count);
     }
 
     //Can I add a server to the rest object?
