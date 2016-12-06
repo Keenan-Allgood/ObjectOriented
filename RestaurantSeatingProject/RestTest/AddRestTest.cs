@@ -32,6 +32,23 @@ using RestaurantSeatingProject;
 
     }
 
+    //add restaurant
+    [Test]
+    public void AddRestObject()
+    {
+        
+        //addRest = new Restaurant();
+        //addRest.Address = "305 My Drive Lincoln, NE";
+        //addRest.Host = "Bryan Goff";
+        //addRest.Manager = "Bryan Goff";
+        //addRest.Name = "Test";
+        //addRest.serverList = new List<Server>();
+        //addRest.TableList = new List<Table>();
+        
+        //FloorPlan myFloor = new FloorPlan(1,addRest.TableList);
+        //Assert.AreEqual(1, );
+    }
+
     //Can I add a server to the rest object?
     [Test]
     public void  AddServer()
@@ -40,6 +57,17 @@ using RestaurantSeatingProject;
         addRest.addServer(myServer);
         Assert.AreEqual(1, addRest.serverList.Count);
     }
+
+    //Positive test, removes server from restaurant but not list of servers.
+    [Test]
+    public void RemoveServer()
+    {
+        Server myServer = new Server("Bryan");
+        addRest.addServer(myServer);
+        addRest.removeServer(myServer);
+        Assert.NotNull(myServer);
+    }
+
 
     //Can we add a new Rest Name?
     [Test]
@@ -64,4 +92,6 @@ using RestaurantSeatingProject;
         addRest.TableList.Add(hotshotTable);
         Assert.AreEqual(1, addRest.TableList.Count);
     }
+
+    
 }

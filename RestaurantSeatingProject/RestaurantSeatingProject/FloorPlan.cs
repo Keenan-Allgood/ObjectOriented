@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSeatingProject
 {
-    class FloorPlan
+    public class FloorPlan
     {
         private int floorPlan;
         private Table[] tables;
