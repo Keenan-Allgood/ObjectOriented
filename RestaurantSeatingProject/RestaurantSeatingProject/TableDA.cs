@@ -8,7 +8,7 @@ namespace RestaurantSeatingProject
 {
     public class TableDA
     {
-        private List<Table> tables;
+        public List<Table> tables;
 
         public TableDA()
         {

@@ -7,7 +7,6 @@ using NUnit.Framework;
 
 namespace RestaurantSeatingProject
 {
-    [TestFixture]
     public class Restaurant
     {
         public static List<Restaurant> oRestaurantList = new List<Restaurant>();

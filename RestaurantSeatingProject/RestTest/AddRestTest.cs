@@ -30,36 +30,21 @@ using RestaurantSeatingProject;
 
         hotshotTable = new Table("John Madden's Table", 12);
 
-    }
+        
+        }
 
     //add restaurant
     [Test]
     public void AddRestObject()
     {
-
-        addRest = new Restaurant();
-        addRest.Address = "305 My Drive Lincoln, NE";
-        addRest.Host = "Bryan Goff";
-        addRest.Manager = "Bryan Goff";
-        addRest.Name = "Test";
-        addRest.serverList = new List<Server>();
-        addRest.TableList = new List<Table>();
         Restaurant.oRestaurantList.Add(addRest);
         Assert.AreEqual(1, Restaurant.oRestaurantList.Count);
     }
 
-    //Stays in the list?  Fix
+    //Stays in the list?
     [Test]
     public void DeleteRestObject()
     {
-        addRest = new Restaurant();
-        addRest.Address = "305 My Drive Lincoln, NE";
-        addRest.Host = "Bryan Goff";
-        addRest.Manager = "Bryan Goff";
-        addRest.Name = "Test";
-        addRest.serverList = new List<Server>();
-        addRest.TableList = new List<Table>();
-        Restaurant.oRestaurantList.Add(addRest);
         Restaurant.DeleteRestaurant(0);
         Assert.AreEqual(0, Restaurant.oRestaurantList.Count);
     }
@@ -108,5 +93,41 @@ using RestaurantSeatingProject;
         Assert.AreEqual(1, addRest.TableList.Count);
     }
 
+    [Test]
+    public void ClearTable()
+    {
+        addRest.TableList.Add(hotshotTable);
+        addRest.TableList.RemoveAt(0);
+        Assert.AreEqual(0, addRest.TableList.Count);
+    }
     
+    //Negative Test
+    [Test]
+    public void TestTableIndex()
+    {
+        TableDA myTableList = new TableDA();
+        Table myTable = new Table("3", 4);
+        myTableList.tables.Add(myTable);
+        Assert.AreNotEqual(myTableList.tables.Count, 0);
+    }
+
+    //Negative Test
+    [Test]
+    public void AddWaitListGroup()
+    {
+        WaitListGroup myWaitlistGroup = new WaitListGroup("Bryan",3);
+        WaitList myWaitlist = new WaitList();
+        myWaitlist.AddGroup(myWaitlistGroup.Name,myWaitlistGroup.Size);
+        Assert.AreNotEqual(myWaitlistGroup.Name, "Brianna");
+    }
+
+    public void RemoveWaitListGroup()
+    {
+        WaitListGroup myWaitlistGroup = new WaitListGroup("Bryan", 3);
+        WaitList myWaitlist = new WaitList();
+        myWaitlist.AddGroup(myWaitlistGroup.Name, myWaitlistGroup.Size);
+        myWaitlist.RemoveGroup(myWaitlistGroup);
+        Assert.AreNotEqual(myWaitlist.WaitGroupList.Count,1);
+    }
+
 }
